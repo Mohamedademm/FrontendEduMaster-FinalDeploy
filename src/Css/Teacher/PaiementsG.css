@@ -1,0 +1,100 @@
+.paiements-g {
+  background: var(--Primary900-color);
+  color: var(--White-color);
+  font-family: "Arial", sans-serif;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.header {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: #000000;
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.card-selection {
+  margin: 30px 0;
+}
+
+.card-selection h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-image: url('../../images/carte-credit-monochrome-realiste.png');
+
+}
+
+.credit-card {
+  width: 200px;
+  height: 120px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.credit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.credit-card.selected {
+  border: 2px solid var(--Secondary2-color);
+  transform: scale(1.1);
+}
+
+.payment-history {
+  margin-top: 30px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  background: var(--Secondary1-color);
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0px 4px 10px var(--shadow-color);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.history-item:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.history-icon {
+  font-size: 1.5rem;
+  color: var(--Secondary2-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,416 @@
+/* ===== SECTION1 MODERN DESIGN ===== */
+.section1 {
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.section1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.header1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 1rem 1.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.searchContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.searchContainer:focus-within::before {
+  left: 100%;
+}
+
+.searchContainer:focus-within {
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  border-color: #667eea;
+}
+
+.searchIcon {
+  color: #667eea;
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  z-index: 1;
+}
+
+.searchInput {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #1e293b;
+  font-size: 1rem;
+  width: 100%;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.searchInput::placeholder {
+  color: #64748b;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-container {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.profile-container:hover::before {
+  opacity: 1;
+  animation: shimmer 0.8s ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { transform: rotate(45deg) translate(-100%, -100%); }
+  100% { transform: rotate(45deg) translate(100%, 100%); }
+}
+
+.profile-container:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.profile-image-loaded {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-icon {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.loading-spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.signupButton {
+  padding: 0.75rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.signupButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.signupButton:hover::before {
+  left: 100%;
+}
+
+.signupButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ===== STATS CONTAINER ===== */
+.statsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.statCard {
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  border-left: 4px solid;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.statCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.statCard:nth-child(1) { border-left-color: #3b82f6; }
+.statCard:nth-child(2) { border-left-color: #10b981; }
+.statCard:nth-child(3) { border-left-color: #f59e0b; }
+.statCard:nth-child(4) { border-left-color: #ef4444; }
+
+.statHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.statIcon {
+  font-size: 2rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.statCard:nth-child(1) .statIcon { color: #3b82f6; }
+.statCard:nth-child(2) .statIcon { color: #10b981; }
+.statCard:nth-child(3) .statIcon { color: #f59e0b; }
+.statCard:nth-child(4) .statIcon { color: #ef4444; }
+
+.statLabel {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.statValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0.5rem 0;
+  line-height: 1;
+}
+
+.statGrowth {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.growth-positive {
+  color: #10b981;
+}
+
+.growth-negative {
+  color: #ef4444;
+}
+
+.growth-neutral {
+  color: #64748b;
+}
+
+.no-stats-found {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #64748b;
+  font-size: 1.1rem;
+  padding: 3rem;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: 1rem;
+  border: 2px dashed #cbd5e1;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+  .header1 {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .searchContainer {
+    max-width: 100%;
+  }
+  
+  .statsContainer {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .section1 {
+    padding: 1.5rem;
+  }
+  
+  .header1 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .statsContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .statCard {
+    padding: 1.5rem;
+  }
+  
+  .statValue {
+    font-size: 2rem;
+  }
+  
+  .profile-container {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .profile-icon {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section1 {
+    padding: 1rem;
+  }
+  
+  .searchContainer {
+    padding: 0.75rem 1rem;
+  }
+  
+  .statCard {
+    padding: 1rem;
+  }
+  
+  .statValue {
+    font-size: 1.75rem;
+  }
+  
+  .statIcon {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.statCard:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.profile-container:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.signupButton:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}

@@ -1,0 +1,3 @@
+diagramme seqence :
+-   user faire auth 
+- user choisir rodmap et faire terminer le cours et le test de chaqueu cours de rodmap  take CERTIFICATION 

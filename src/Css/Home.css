@@ -1,0 +1,9 @@
+.Home {
+    background: linear-gradient(135deg, var(--Primary900-color) 30%, var(--Primary700-color) 100%);
+    text-align: center;
+    padding-top: 20px;
+    font-size: 15px;
+    font-weight: 500;
+    height: auto;
+    width: auto;
+  }

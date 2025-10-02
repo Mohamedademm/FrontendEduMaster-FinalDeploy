@@ -1,0 +1,107 @@
+/* General background styling */
+.login-background {
+    background-image: url('../images/imageregistre2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Form container styling */
+.login-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    width: 240px;
+    max-width: 100%;
+}
+
+/* Title styling */
+h2 {
+    text-align: center;
+    font-size: 25px;
+    color: #333;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+/* Input field styling */
+.login-form-group {
+    margin-bottom: 12px;
+}
+
+.login-form-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.login-form-input:focus {
+    outline: none;
+    border-color: #4caf50;
+}
+
+/* Button styling */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #45a049;
+}
+
+/* Error message styling */
+.login-error {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+/* Server error styling */
+.server-error {
+    color: #ff0000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Link styling */
+.login-text-link {
+    color: #00d8ff;
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-form-wrapper {
+        width: 80%;
+        padding: 18px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .login-btn {
+        font-size: 16px;
+    }
+}

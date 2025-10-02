@@ -1,0 +1,69 @@
+.custom-chatbot-container {
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.custom-chat-messages {
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.custom-reset-btn {
+  background-color: #ec526b;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.custom-reset-btn:hover {
+  background-color: #d43f5e;
+}
+
+.custom-message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.custom-message.user {
+  background-color: #ffd867;
+  align-self: flex-end;
+}
+
+.custom-message.bot {
+  background-color: #c3cfe2;
+  align-self: flex-start;
+}
+
+.custom-input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.custom-ai-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.custom-mic-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.custom-mic-svg {
+  width: 24px;
+  height: 24px;
+}

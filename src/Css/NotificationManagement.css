@@ -1,0 +1,117 @@
+.notification-management {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  h1 {
+    color: #136E61;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .notification-form {
+    margin-bottom: 30px;
+  }
+  
+  .notification-form textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .notification-form .form-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .notification-form .form-controls label {
+    font-size: 0.9rem;
+  }
+  
+  .notification-form .form-controls select,
+  .notification-form .form-controls input {
+    padding: 5px;
+    font-size: 1rem;
+    margin-left: 10px;
+  }
+  
+  .notification-form button {
+    background-color: #EAF141;
+    color: #22093B;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .notification-form button:hover {
+    background-color: #ccd9a4;
+  }
+  
+  .notification-history, .notifications-list {
+    margin-top: 30px;
+  }
+  
+  .notification-history h2, .notifications-list h2 {
+    font-size: 1.5rem;
+    color: #136E61;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #136E61;
+    color: #fff;
+  }
+  
+  .status {
+    color: #999;
+  }
+  
+  .urgent {
+    background-color: #F44336;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .notifications-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .notifications-list ul li {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .notifications-list ul li.urgent {
+    background-color: #F44336;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .notifications-list ul li span {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.8rem;
+    color: #555;
+  }
+  

@@ -1,0 +1,302 @@
+.contact-section {
+  background: linear-gradient(135deg, var(--Primary900-color) 0%, var(--Primary700-color) 100%); /* Gradient background */
+  color: var(--White-color);
+  padding: 80px 20px; /* Increased top/bottom padding */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.contact-section-title {
+  font-size: 3rem; /* Larger title */
+  color: var(--Secondary2-color);
+  margin-bottom: 50px; /* Increased margin */
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  letter-spacing: 1.5px; /* More spacing */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* Subtle text shadow */
+}
+
+.contact-container {
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch; /* Make columns equal height */
+  gap: 60px; /* Further increased gap */
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05); /* More subtle, glassy background */
+  padding: 50px; /* Increased padding */
+  border-radius: 25px; /* Softer border radius */
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glassy effect */
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 320px; /* Adjusted min-width */
+  padding-right: 40px;
+  /* Removed border-right, separation by gap is enough */
+}
+
+.contact-info p.intro-text {
+  font-size: 1.15rem; /* Slightly larger */
+  margin-bottom: 35px;
+  color: var(--Secondary3-color);
+  line-height: 1.9;
+}
+
+.contact-details h4 {
+  font-size: 1.8rem; /* Larger */
+  margin-bottom: 25px;
+  color: var(--Secondary2-color);
+  font-weight: 600;
+  border-bottom: 2px solid var(--Secondary2-color);
+  padding-bottom: 12px;
+  display: inline-block;
+}
+
+.contact-details .detail-item {
+  display: flex;
+  align-items: flex-start; /* Align icon to top of text block */
+  margin-bottom: 20px; /* Space between detail items */
+  gap: 15px; /* Space between icon and text */
+}
+
+.contact-details .detail-icon {
+  font-size: 1.5rem; /* Icon size */
+  color: var(--Secondary2-color); /* Icon color */
+  margin-top: 5px; /* Align with first line of text */
+}
+
+.contact-details p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 0; /* Remove default p margin as spacing is handled by detail-item */
+  color: var(--White-color);
+}
+
+.contact-details p strong {
+  color: var(--Secondary3-color);
+  font-weight: 600;
+}
+
+.contact-form {
+  flex: 1.5;
+  min-width: 320px;
+  padding: 0 0 0 40px; /* Adjusted padding */
+  border-left: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator for larger screens */
+}
+
+.contact-form h2 {
+  text-align: left;
+  margin-bottom: 35px;
+  font-size: 2.4rem;
+  color: var(--White-color);
+  font-weight: 600;
+}
+
+.form-groupContact {
+  margin-bottom: 30px;
+  position: relative; /* For icon positioning if needed */
+}
+
+.form-groupContact label {
+  display: flex; /* Align icon and text */
+  align-items: center;
+  gap: 8px; /* Space between icon and label text */
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--Secondary3-color);
+  font-weight: 500;
+}
+
+.form-groupContact .label-icon {
+  font-size: 1.1em; /* Adjust icon size in label */
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper .input-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray2-color);
+  font-size: 1.1rem;
+  pointer-events: none; /* So it doesn't interfere with input click */
+}
+
+.form-groupContact input,
+.form-groupContact textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 16px 16px 16px 45px; /* Increased padding, left padding for icon */
+  border-radius: 12px; /* Softer radius */
+  border: 1px solid var(--gray2-color);
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1); /* Translucent background */
+  color: var(--White-color); /* Text color for inputs */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.form-groupContact textarea {
+  padding: 16px; /* Textarea might not need left padding for icon if icon is not used inside */
+}
+
+
+.form-groupContact input::placeholder,
+.form-groupContact textarea::placeholder {
+  color: var(--Secondary3-color); /* Lighter placeholder text */
+  opacity: 0.8;
+}
+
+.form-groupContact input:focus,
+.form-groupContact textarea:focus {
+  outline: none;
+  border-color: var(--Secondary2-color);
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly more opaque on focus */
+  box-shadow: 0 0 0 4px rgba(234, 241, 65, 0.25);
+}
+
+.form-groupContact textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.form-groupContact input.error,
+.form-groupContact textarea.error {
+  border-color: var(--error-default500);
+  background-color: rgba(255, 68, 35, 0.1); /* Translucent error background */
+}
+
+.form-groupContact input.error:focus,
+.form-groupContact textarea.error:focus {
+  box-shadow: 0 0 0 4px rgba(255, 68, 35, 0.25);
+}
+
+.error-msg, .success-msg {
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 10px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.error-msg {
+  color: var(--error-light100);
+  background-color: var(--error-dark700);
+  border-left: 4px solid var(--error-default500);
+}
+
+.success-msg {
+  color: var(--success-light100);
+  background-color: var(--success-dark700);
+  border-left: 4px solid var(--success-default500);
+}
+
+.response-message {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.buttonContact {
+  display: flex; /* For aligning icon and text */
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Space between text and icon */
+  width: 100%;
+  padding: 18px; /* Increased padding */
+  font-size: 1.2rem;
+  color: var(--Primary900-color);
+  background-color: var(--Secondary2-color);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.buttonContact .button-icon {
+  font-size: 1.1em; /* Adjust icon size relative to button text */
+}
+
+.buttonContact:hover:not(:disabled) {
+  background-color: var(--Secondary3-color);
+  color: var(--Primary800-color);
+  transform: translateY(-4px) scale(1.02); /* More pronounced lift and slight scale */
+  box-shadow: 0 8px 20px rgba(204, 221, 190, 0.5);
+}
+
+.buttonContact:disabled {
+  background-color: var(--gray2-color);
+  color: var(--Gray1-color);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 992px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 30px; /* Adjust padding */
+    gap: 40px;
+  }
+  .contact-info {
+    padding-right: 0;
+    margin-bottom: 0; /* Gap handles spacing */
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 30px;
+  }
+  .contact-details .detail-item {
+    justify-content: center; /* Center detail items */
+  }
+  .contact-details h4 {
+    display: block;
+    text-align: center;
+  }
+  .contact-form {
+    width: 100%;
+    max-width: 600px;
+    padding: 0;
+    border-left: none; /* Remove left border on stack */
+  }
+  .contact-form h2 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 60px 15px;
+  }
+  .contact-section-title {
+    font-size: 2.5rem;
+  }
+  .contact-form h2 {
+    font-size: 2rem;
+  }
+  .form-groupContact input,
+  .form-groupContact textarea {
+    padding: 15px 15px 15px 40px; /* Adjust padding for smaller screens */
+  }
+  .form-groupContact textarea {
+    padding: 15px;
+  }
+  .buttonContact {
+    padding: 16px;
+    font-size: 1.1rem;
+  }
+}

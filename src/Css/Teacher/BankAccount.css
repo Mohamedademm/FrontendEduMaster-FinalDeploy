@@ -1,0 +1,132 @@
+/* Palette de couleurs */
+:root {
+  --Primary900-color: #093B3B;
+  --Primary800-color: #295959;
+  --Primary700-color: #136E61;
+  --Secondary1-color: #22093B;
+  --Secondary2-color: #EAF141;
+  --Secondary3-color: #CCDDBE;
+  --Gray1-color: #1F1F1F;
+  --gray2-color: #BACAC7;
+  --gray3-color: #E8F6F3;
+  --White-color: #FFFFFF;
+}
+
+.bank-account {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--Secondary3-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: var(--Primary900-color);
+  font-family: "Arial", sans-serif;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.bank-account .header {
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.bank-account .header h1 {
+  font-size: 2.5rem;
+  color: var(--Primary900-color);
+}
+
+.bank-account .header p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  color: var(--Primary900-color);
+}
+
+.bank-account .account-form {
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.bank-account .account-form .MuiTextField-root {
+  margin-bottom: 15px;
+}
+
+.bank-account .payment-history {
+  margin-top: 20px;
+}
+
+.bank-account .payment-history h2 {
+  color: var(--Primary900-color);
+  margin-bottom: 10px;
+}
+
+.bank-account .history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid var(--gray2-color);
+  border-radius: 4px;
+  padding: 10px;
+  background-color: var(--White-color);
+}
+
+.bank-account .history-item {
+  background: var(--Secondary1-color);
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0px 4px 10px var(--Gray1-color);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+  border-bottom: 1px solid var(--gray2-color);
+}
+
+.bank-account .history-item:last-child {
+  border-bottom: none;
+}
+
+.bank-account .history-item:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bank-account .history-icon {
+  font-size: 1.5rem;
+  color: var(--Primary700-color);
+}
+
+.credit-card {
+  width: 200px;
+  height: 120px;
+  cursor: pointer;
+  background-image: url('../../images/carte-credit-monochrome-realiste.png');
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.credit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.credit-card.selected {
+  border: 2px solid var(--Secondary2-color);
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

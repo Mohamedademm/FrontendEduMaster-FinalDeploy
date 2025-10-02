@@ -1,0 +1,1092 @@
+/* CodeQuest Styles - Advanced Gaming Interface */
+.code-quest {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  transition: all 0.3s ease;
+}
+
+/* Dark/Light Mode */
+.code-quest.dark {
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 50%, #2d1b69 100%);
+  color: #e2e8f0;
+}
+
+.code-quest.light {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+  color: #1e293b;
+}
+
+/* Animated Background */
+.code-quest-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.code-quest-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(245, 101, 101, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 25% 75%, rgba(251, 191, 36, 0.08) 0%, transparent 50%);
+  animation: particles-drift 25s ease-in-out infinite;
+}
+
+@keyframes particles-drift {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  25% { transform: translateY(-30px) rotate(1deg) scale(1.02); }
+  50% { transform: translateY(20px) rotate(-1deg) scale(0.98); }
+  75% { transform: translateY(-10px) rotate(0.5deg) scale(1.01); }
+}
+
+/* Header Styles */
+.code-quest-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.code-quest.light .code-quest-header {
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.code-quest-title h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0;
+  background: linear-gradient(135deg, #6366f1, #10b981, #f59e0b, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: title-pulse 4s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+}
+
+.code-quest-title p {
+  margin: 0.5rem 0 0 0;
+  opacity: 0.8;
+  font-size: 1.2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+@keyframes title-pulse {
+  0%, 100% { filter: brightness(1) saturate(1); }
+  50% { filter: brightness(1.2) saturate(1.2); }
+}
+
+.code-quest-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.control-btn {
+  padding: 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  border-radius: 16px;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-size: 1.3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.control-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.control-btn:hover::before {
+  left: 100%;
+}
+
+.control-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  background: rgba(99, 102, 241, 0.2);
+  border-color: #6366f1;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* User Stats */
+.user-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.code-quest.light .stat-card {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+  animation: stat-float 3s ease-in-out infinite;
+}
+
+@keyframes stat-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #6366f1;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Levels Grid */
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.level-card {
+  position: relative;
+  padding: 2rem;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+}
+
+.code-quest.light .level-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.level-card.unlocked {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(16, 185, 129, 0.1));
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+.level-card.completed {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(5, 150, 105, 0.15));
+  border-color: rgba(16, 185, 129, 0.5);
+}
+
+.level-card.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.level-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.level-card.unlocked:hover::before {
+  left: 100%;
+}
+
+.level-card.unlocked:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border-color: #6366f1;
+}
+
+.level-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  display: block;
+  animation: level-icon-float 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes level-icon-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+.level-info h3 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  color: #6366f1;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.level-info h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.level-info p {
+  opacity: 0.8;
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.level-reward {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  display: inline-block;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+  animation: reward-glow 3s ease-in-out infinite;
+}
+
+@keyframes reward-glow {
+  0%, 100% { box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3); }
+  50% { box-shadow: 0 4px 25px rgba(245, 158, 11, 0.6); }
+}
+
+.level-lock, .level-completed {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+}
+
+.level-completed {
+  animation: completed-pulse 2s ease-in-out infinite;
+}
+
+@keyframes completed-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.level-progress {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+/* Game Header */
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.code-quest.light .game-header {
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.game-info h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.progress-bar {
+  width: 300px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.code-quest.light .progress-bar {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #10b981);
+  transition: width 0.5s ease;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: progress-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes progress-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.challenge-counter {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.game-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-box {
+  text-align: center;
+  min-width: 80px;
+}
+
+.stat-box .stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 0.25rem;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.stat-box .stat-label {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.quit-btn {
+  padding: 0.8rem 1.2rem;
+  background: rgba(239, 68, 68, 0.2);
+  border: 2px solid rgba(239, 68, 68, 0.4);
+  border-radius: 12px;
+  color: #ef4444;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  backdrop-filter: blur(10px);
+}
+
+.quit-btn:hover {
+  background: rgba(239, 68, 68, 0.3);
+  border-color: #ef4444;
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Challenge Section */
+.challenge-section {
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.challenge-card {
+  max-width: 1000px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 2.5rem;
+  animation: challenge-slide-in 0.6s ease-out;
+}
+
+.code-quest.light .challenge-card {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+@keyframes challenge-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.challenge-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.challenge-type {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.challenge-question {
+  margin-bottom: 2rem;
+}
+
+.challenge-question p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Code Editor */
+.code-editor {
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.code-quest.light .code-editor {
+  background: rgba(248, 250, 252, 0.9);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.code-editor:focus-within {
+  border-color: #6366f1;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.hint-btn, .reset-btn {
+  padding: 0.5rem 0.8rem;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 8px;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.hint-btn:hover, .reset-btn:hover {
+  background: rgba(99, 102, 241, 0.3);
+  border-color: #6366f1;
+  transform: scale(1.05);
+}
+
+.code-textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 1.5rem;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  tab-size: 2;
+}
+
+.code-textarea::placeholder {
+  opacity: 0.5;
+}
+
+/* Hint Card */
+.hint-card {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  animation: hint-slide-in 0.5s ease-out;
+}
+
+@keyframes hint-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hint-card h4 {
+  margin: 0 0 1rem 0;
+  color: #f59e0b;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.hint-card p {
+  margin: 0;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Action Buttons */
+.challenge-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.check-btn, .next-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.check-btn {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.next-btn {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.check-btn::before, .next-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.check-btn:hover::before, .next-btn:hover::before {
+  left: 100%;
+}
+
+.check-btn:hover, .next-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.next-btn:hover {
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+}
+
+/* Explanation Card */
+.explanation-card {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  animation: explanation-slide-in 0.5s ease-out;
+}
+
+@keyframes explanation-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.explanation-card h4 {
+  margin: 0 0 1rem 0;
+  color: #6366f1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.explanation-card p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
+.points-earned {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  display: inline-block;
+  font-size: 0.9rem;
+  animation: points-pulse 2s ease-in-out infinite;
+}
+
+@keyframes points-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Profile Modal */
+.profile-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: modal-fade-in 0.3s ease;
+}
+
+@keyframes modal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.profile-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  color: #1e293b;
+  animation: modal-slide-in 0.4s ease;
+  backdrop-filter: blur(20px);
+}
+
+.code-quest.dark .profile-content {
+  background: rgba(30, 41, 59, 0.95);
+  color: #e2e8f0;
+}
+
+@keyframes modal-slide-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+}
+
+.code-quest.dark .profile-header {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.profile-header button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.profile-header button:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.profile-stats {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.profile-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.badges-section h4 {
+  margin: 0 0 1rem 0;
+  color: #6366f1;
+  font-size: 1.2rem;
+}
+
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 12px;
+  text-align: center;
+}
+
+.badge-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.badge-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Level Complete Overlay */
+.level-complete-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: overlay-fade-in 0.5s ease;
+}
+
+@keyframes overlay-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.level-complete-animation {
+  text-align: center;
+  color: white;
+  animation: completion-bounce 0.8s ease-out;
+}
+
+@keyframes completion-bounce {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.level-complete-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: icon-spin 2s linear infinite;
+}
+
+@keyframes icon-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.level-complete-animation h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 1rem 0;
+  background: linear-gradient(135deg, #6366f1, #10b981, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.xp-reward {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f59e0b;
+  margin: 1rem 0;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+.level-complete-animation p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin: 1rem 0;
+}
+
+/* Animation States */
+.code-quest.animating {
+  pointer-events: none;
+}
+
+.code-quest.animating .challenge-card {
+  animation: card-shake 0.5s ease-in-out;
+}
+
+@keyframes card-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Color Classes */
+.text-blue-400 { color: #60a5fa; }
+.text-green-400 { color: #4ade80; }
+.text-yellow-400 { color: #facc15; }
+.text-red-400 { color: #f87171; }
+.text-orange-400 { color: #fb923c; }
+.text-purple-400 { color: #c084fc; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .code-quest-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .levels-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .user-stats {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .code-quest-title h1 {
+    font-size: 2.5rem;
+  }
+  
+  .game-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .game-stats {
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .challenge-section {
+    padding: 1rem;
+  }
+  
+  .challenge-card {
+    padding: 1.5rem;
+  }
+  
+  .challenge-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .code-textarea {
+    min-height: 150px;
+    font-size: 0.9rem;
+  }
+  
+  .level-complete-animation h2 {
+    font-size: 2rem;
+  }
+  
+  .xp-reward {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .code-quest-header {
+    padding: 1rem;
+  }
+  
+  .code-quest-title h1 {
+    font-size: 2rem;
+  }
+  
+  .levels-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .user-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .challenge-card {
+    padding: 1rem;
+  }
+  
+  .challenge-question p {
+    font-size: 1rem;
+  }
+  
+  .code-textarea {
+    padding: 1rem;
+    min-height: 120px;
+  }
+  
+  .profile-content {
+    padding: 1.5rem;
+  }
+  
+  .badges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

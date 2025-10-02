@@ -1,0 +1,349 @@
+/* Styles améliorés pour la page GestionProfil */
+
+/* Animation de fondu pour l'apparition du composant */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container principal avec animation */
+.profile-containerGestionProfil {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Header avec gradient personnalisé */
+.profile-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Avatar avec effet hover */
+.profile-avatar {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2) !important;
+}
+
+/* Image profil améliorée */
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  object-fit: cover;
+  margin-bottom: 10px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Bouton supprimer image amélioré */
+.remove-image-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 1;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+  transition: all 0.3s ease;
+}
+
+.remove-image-btn:hover {
+  background-color: #c0392b;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(231, 76, 60, 0.6);
+}
+
+/* Texte d'erreur stylisé */
+.field-error {
+  color: #e74c3c;
+  font-size: 0.85rem;
+  margin-top: 3px;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Bouton enregistrer avec gradient */
+.save-btn {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.save-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.save-btn:hover::before {
+  left: 100%;
+}
+
+.save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.save-btn.loading {
+  pointer-events: none;
+  opacity: 0.7;
+  transform: none;
+}
+
+.save-btn:disabled {
+  background: #ccc;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Spinner dans bouton */
+.save-btn .spinner {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Champs de formulaire avec animation */
+.form-field {
+  transition: all 0.3s ease;
+}
+
+.form-field:hover {
+  transform: translateY(-1px);
+}
+
+/* Section d'upload d'image */
+.upload-section {
+  border: 2px dashed #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  background: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.upload-section:hover {
+  border-color: #667eea;
+  background: #f0f2ff;
+  transform: translateY(-2px);
+}
+
+/* Cards avec ombre */
+.profile-card {
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+  .profile-containerGestionProfil {
+    padding: 16px;
+  }
+  
+  .profile-header {
+    padding: 24px 16px;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .save-btn {
+    width: 100%;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-header h4 {
+    font-size: 1.5rem;
+  }
+  
+  .profile-header .MuiTypography-subtitle1 {
+    font-size: 0.9rem;
+  }
+}
+
+/* Hover effects pour les icônes */
+.icon-hover {
+  transition: all 0.2s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.1);
+  color: #667eea;
+}
+
+/* Amélioration de l'accessibilité */
+.profile-textfield:focus-within {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+/* Divider stylisé */
+.custom-divider {
+  background: linear-gradient(90deg, transparent, #ddd, transparent);
+  height: 1px;
+  border: none;
+  margin: 24px 0;
+}
+
+/* Animations pour les notifications */
+.notification-success {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+}
+
+.notification-error {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+
+/* Loading states */
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+}
+
+/* Amélioration des states des inputs */
+.MuiTextField-root .MuiOutlinedInput-root {
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.MuiTextField-root .MuiOutlinedInput-root:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dialog amélioré */
+.custom-dialog .MuiDialog-paper {
+  border-radius: 16px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles pour les boutons d'action */
+.action-button {
+  border-radius: 12px;
+  text-transform: none;
+  font-weight: 600;
+  padding: 8px 24px;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Amélioration de l'avatar */
+.profile-avatar-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-avatar-container:hover .profile-avatar-overlay {
+  opacity: 1;
+}
+
+/* Section info utilisateur */
+.user-info-section {
+  background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+/* Amélioration des labels */
+.section-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.section-label .MuiSvgIcon-root {
+  margin-right: 8px;
+  color: #667eea;
+}

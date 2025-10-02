@@ -1,0 +1,197 @@
+/* Modern Certification Design */
+.SectionCertCertification {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.SectionCertCertification::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(255, 234, 167, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.ContainerCertCertification {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.TitleCertCertification {
+  font-size: 3rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.TitleCertCertification::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+  border-radius: 2px;
+}
+
+.CardContainerCertCertification {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.CardCertCertification {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.CardCertCertification::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.CardCertCertification:hover::before {
+  opacity: 1;
+}
+
+.CardCertCertification:hover {
+  transform: translateY(-15px) scale(1.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.CardTitleCertCertification {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  margin-top: 3rem;
+}
+
+.CardDescriptionCertCertification {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.CardButtonCertCertification {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+  color: #2d3436;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 234, 167, 0.3);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.CardButtonCertCertification:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 234, 167, 0.4);
+}
+
+/* Image Container */
+.ImageContainerCertCertification {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 3;
+  box-shadow: 0 4px 15px rgba(255, 234, 167, 0.3);
+}
+
+/* Certification Icons */
+.Certification1 .ImageContainerCertCertification::after {
+  content: '🏆';
+}
+
+.Certification2 .ImageContainerCertCertification::after {
+  content: '⭐';
+}
+
+.Certification3 .ImageContainerCertCertification::after {
+  content: '🎓';
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .SectionCertCertification {
+    padding: 4rem 0;
+  }
+  
+  .ContainerCertCertification {
+    padding: 0 1rem;
+  }
+  
+  .TitleCertCertification {
+    font-size: 2.5rem;
+  }
+  
+  .CardContainerCertCertification {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .CardCertCertification {
+    padding: 2rem;
+    min-height: 250px;
+  }
+  
+  .CardTitleCertCertification,
+  .CardDescriptionCertCertification {
+    text-align: center;
+  }
+}

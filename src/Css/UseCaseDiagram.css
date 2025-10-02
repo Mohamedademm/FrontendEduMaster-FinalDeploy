@@ -1,0 +1,73 @@
+.use-case-diagram-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.diagram-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.diagram-wrapper {
+  height: 600px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.diagram-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.actors, .use-cases, .relationships, .website-details {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.actors h2, .use-cases h2, .relationships h2, .website-details h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.use-case-group {
+  margin-bottom: 15px;
+}
+
+.use-case-group h3 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 5px;
+  color: #666;
+}
+
+.website-details h3 {
+  font-size: 1.2em;
+  margin-top: 15px;
+  color: #555;
+}
+
+.website-details p {
+  margin-bottom: 15px;
+  color: #666;
+}

@@ -1,0 +1,32 @@
+/* Profilside styles */
+.profilside {
+    position: fixed; /* Fixed position for dynamic placement */
+    background-color: #000; /* Set background to black */
+    color: #fff; /* Set text color to white */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1000;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 190px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 10px;
+    color: #fff; /* Set menu item text color to white */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li:hover {
+    background-color: #333; /* Set hover background to dark gray */
+}

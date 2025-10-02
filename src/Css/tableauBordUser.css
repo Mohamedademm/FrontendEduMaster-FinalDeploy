@@ -1,0 +1,44 @@
+.tableau-bord-user {
+  padding: 20px;
+background: transparent;
+  border: 1px solid var(--gray2-color);
+  border-radius: 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tableau-bord-user h2 {
+  margin-bottom: 20px;
+  color: var(--Gray1-color);
+  font-size: 1.5rem;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.course-progress {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-progress h3 {
+  margin: 0 0 5px;
+  color: var(--Primary900-color);
+  font-size: 1.2rem;
+}
+
+.progress-bar {
+  background-color: var(--gray3-color);
+  border-radius: 4px;
+  overflow: hidden;
+  height: 20px;
+  margin-bottom: 5px;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--Primary700-color);
+  transition: width 0.3s ease;
+}

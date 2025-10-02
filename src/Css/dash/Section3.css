@@ -1,0 +1,468 @@
+.section3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Recent students takes 2/3, other cards 1/3 */
+  gap: 20px;
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--card-background-color);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-color) 0px 4px 12px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-color) 0px 8px 20px;
+  border-color: var(--primary-color);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sectionHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icon {
+  font-size: 1.1em;
+}
+
+.viewAllButton, .actionButton {
+  background-color: var(--Primary700-color);
+  color: var(--White-color);
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px; /* Pill shape */
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.viewAllButton:hover, .actionButton:hover {
+  background-color: var(--Primary800-color);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.actionButton.viewDetailsButton {
+  background-color: transparent;
+  color: var(--Primary700-color);
+  padding: 6px; /* Smaller padding for icon button */
+  border-radius: 50%;
+  font-size: 1.1rem; /* Icon size */
+}
+.actionButton.viewDetailsButton:hover {
+  background-color: var(--Secondary3-color);
+  color: var(--Primary800-color);
+}
+
+
+.table-responsive {
+  overflow-x: auto; /* Allows table to scroll horizontally on small screens */
+}
+
+.studentsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.studentsTable th, .studentsTable td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.studentsTable tr {
+  transition: background-color 0.2s ease;
+}
+
+.studentsTable th {
+  font-weight: 600;
+  color: var(--gray2-color);
+  background-color: var(--Secondary3-color); /* Light header for table */
+}
+body.dark-mode .studentsTable th {
+    background-color: var(--Primary900-color); /* Darker header for dark mode table */
+    color: var(--gray2-color);
+}
+
+
+.studentsTable tbody tr:hover {
+  background-color: var(--Secondary3-color);
+}
+body.dark-mode .studentsTable tbody tr:hover {
+  background-color: var(--Primary900-color); /* Darker hover for dark mode */
+}
+
+
+.studentInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.studentAvatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.studentAvatar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.progressBarContainer {
+  width: 100%;
+  max-width: 120px;
+  background-color: var(--gray3-color);
+  border-radius: 10px;
+  height: 12px; /* Slimmer progress bar */
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background-color: var(--Secondary2-color); /* Success color for progress */
+  border-radius: 10px 0 0 10px; /* Keep left radius */
+  transition: width 0.5s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.progressText {
+    font-size: 0.7rem;
+    color: var(--White-color);
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    mix-blend-mode: difference; /* Helps with visibility on different bg colors */
+}
+
+
+.no-data-message {
+  color: var(--gray2-color);
+  text-align: center;
+  padding: 20px 0;
+  font-style: italic;
+}
+
+/* Instructor and Course Cards */
+.grid-column-span-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between instructor and course card */
+}
+
+.instructorCard, .courseCard {
+  flex: 1; /* Allow them to grow if needed, but maintain structure */
+}
+
+.instructorHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.instructorAvatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-color);
+}
+
+.instructorAvatarSmall {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.courseInstructor .instructorAvatarSmall.FaUserCircle { /* For placeholder icon */
+    color: var(--gray2-color);
+}
+
+.instructorDetails h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 4px 0;
+}
+
+.instructorDetails p {
+  font-size: 0.9rem;
+  color: var(--gray2-color);
+  margin: 0;
+}
+
+.instructorStats {
+  display: flex;
+  justify-content: space-around; /* Or space-between */
+  margin-bottom: 15px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.statIcon {
+  color: var(--Secondary1-color); /* Accent color for icons */
+  font-size: 1.1rem;
+}
+
+.viewProfileButton, .exploreButton {
+  width: 100%;
+  margin-top: auto; /* Pushes button to bottom of card */
+  padding: 10px 15px;
+}
+
+.instructorInfoPlaceholder {
+    text-align: center;
+    padding: 20px;
+}
+.instructorInfoPlaceholder .placeholder-avatar {
+    color: var(--gray2-color);
+    margin-bottom: 10px;
+}
+.instructorInfoPlaceholder h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 4px 0;
+}
+.instructorInfoPlaceholder p {
+    font-size: 0.9rem;
+    color: var(--gray2-color);
+    margin-bottom: 15px;
+}
+
+
+.courseImage {
+  width: 100%;
+  height: 150px; /* Fixed height for course image */
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.courseCard:hover .courseImage {
+  transform: scale(1.05);
+}
+
+.courseInfo h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0 0 8px 0;
+}
+
+.courseInstructor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--gray2-color);
+  margin-bottom: 12px;
+}
+
+.courseFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+}
+
+/* Dark Mode Specifics */
+body.dark-mode .card {
+  background-color: var(--card-background-color);
+  color: var(--text-color);
+  box-shadow: var(--shadow-color) 0px 4px 12px;
+}
+
+body.dark-mode .sectionHeader {
+  border-bottom-color: var(--border-color);
+}
+body.dark-mode .sectionHeader h2 {
+  color: var(--primary-color);
+}
+
+body.dark-mode .viewAllButton, body.dark-mode .actionButton {
+  background-color: var(--Primary700-color);
+  color: var(--White-color); /* Ensure good contrast */
+}
+body.dark-mode .viewAllButton:hover, body.dark-mode .actionButton:hover {
+  background-color: var(--Primary800-color);
+}
+body.dark-mode .actionButton.viewDetailsButton {
+  color: var(--Primary700-color);
+}
+body.dark-mode .actionButton.viewDetailsButton:hover {
+  background-color: var(--Primary900-color);
+  color: var(--Primary700-color);
+}
+
+
+body.dark-mode .studentsTable th, body.dark-mode .studentsTable td {
+  border-bottom-color: var(--border-color);
+  color: var(--text-color);
+}
+
+body.dark-mode .studentAvatar {
+  border-color: var(--border-color);
+}
+
+body.dark-mode .progressBarContainer {
+  background-color: var(--gray3-color); /* Darker bg for progress bar track */
+}
+body.dark-mode .progressFill {
+  background-color: var(--Secondary2-color);
+}
+body.dark-mode .progressText {
+    color: var(--Gray1-color); /* Adjust if needed for dark theme progress bar */
+}
+
+
+body.dark-mode .instructorAvatar {
+  border-color: var(--primary-color);
+}
+body.dark-mode .instructorDetails h3, body.dark-mode .courseInfo h3 {
+  color: var(--text-color);
+}
+body.dark-mode .instructorDetails p, body.dark-mode .courseInstructor {
+  color: var(--gray2-color);
+}
+body.dark-mode .stat-item {
+  color: var(--text-color);
+}
+body.dark-mode .statIcon {
+  color: var(--Secondary1-color);
+}
+body.dark-mode .courseFooter, body.dark-mode .instructorStats {
+  border-top-color: var(--border-color);
+}
+
+/* Accessibility improvements */
+.actionButton:focus,
+.viewAllButton:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Loading states */
+.loading-placeholder {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (max-width: 992px) { /* Tablet and smaller */
+  .section3 {
+    grid-template-columns: 1fr; /* Stack cards on smaller screens */
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .section3 {
+    gap: 15px;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 1.1rem;
+  }
+  
+  .studentsTable {
+    font-size: 0.8rem;
+  }
+  
+  .studentsTable th, .studentsTable td {
+    padding: 8px 6px;
+  }
+  
+  .instructorStats {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .courseFooter {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+}

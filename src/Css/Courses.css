@@ -1,0 +1,195 @@
+/* --- In Courses.css --- */
+
+/* Overall section */
+.courseSectionCS {
+  padding: 2rem;
+  background-color: #f4f6f8;
+  font-family: Arial, sans-serif; /* Example: Choose a suitable font */
+}
+
+/* Header: Title and Create Button */
+.headerCS {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.titleCS {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.button-courses-create {
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+.button-courses-create .material-icons {
+  margin-right: 0.5em;
+}
+.button-courses-create:hover {
+  background-color: #0056b3;
+}
+
+/* Success and Error Messages */
+.success-message {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+}
+
+/* Search Input */
+.searchContainer {
+  margin-bottom: 2rem;
+}
+.searchContainer input[type="text"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.searchContainer input[type="text"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Loading and No Courses States */
+.loading-state, .no-courses-state {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+  padding: 3rem 0;
+}
+
+/* Course List Grid */
+.courseListCS {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(1, 1fr); /* Mobile first */
+}
+@media (min-width: 640px) { /* Small screens */
+  .courseListCS { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 768px) { /* Medium screens */
+  .courseListCS { grid-template-columns: repeat(3, 1fr); }
+}
+@media (min-width: 1024px) { /* Large screens */
+  .courseListCS { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Wrapper for each Card and its action buttons */
+.courseCardItem {
+  background-color: #fff;
+  border-radius: 8px; /* Match card's radius if different */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden; /* If Card.js root doesn't have it */
+}
+
+/* Container for buttons below the card */
+.card-actions-container {
+  padding: 1rem;
+  border-top: 1px solid #eee; /* Optional separator */
+}
+
+/* Teacher's CRUD buttons container */
+.boutonCRUD {
+  display: flex;
+  justify-content: space-between; /* Or space-around */
+  margin-bottom: 0.75rem;
+}
+
+/* General Button Styling (Edit, Delete, Consult) */
+.button-courses-edit, .button-courses-delete, .button-course-consult {
+  padding: 0.6rem 1rem; /* Adjusted padding */
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.button-courses-edit .material-icons,
+.button-courses-delete .material-icons,
+.button-course-consult .material-icons {
+  margin-right: 0.4em; /* Space for icon */
+  font-size: 1.1em; /* Icon size relative to text */
+}
+
+.button-courses-edit { background-color: #ffc107; color: #333; }
+.button-courses-edit:hover { background-color: #e0a800; }
+
+.button-courses-delete { background-color: #dc3545; color: white; }
+.button-courses-delete:hover { background-color: #c82333; }
+
+.button-course-consult { background-color: #28a745; color: white; width: 100%; }
+.button-course-consult:hover { background-color: #218838; }
+
+/* Pagination */
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem; /* More space above pagination */
+  padding: 1rem 0;
+}
+
+.pagination-button {
+  background-color: #6c757d;
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.pagination-button .material-icons {
+  font-size: 1.3rem; /* Slightly larger icons */
+}
+.pagination-button:disabled {
+  background-color: #adb5bd;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+.pagination-button:not(:disabled):hover {
+  background-color: #5a6268;
+}
+
+.pagination-info {
+  margin: 0 1rem;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}

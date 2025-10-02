@@ -1,0 +1,97 @@
+
+.landingSection {
+  background: transparent;  
+  color: var(--White-color);
+  text-align: center;
+  padding: 20px 60px;
+  font-size: 15px;
+  font-weight: 200;
+  width: 80%;
+  border-radius: 50px;
+  margin-block-end: 5%;
+  margin-left: 5%;
+  box-shadow: 0px 10px 15px var(--White-color);
+}
+
+.mainContentHome {  
+  display: flex;
+  justify-content: center;
+  max-width: 1300px;
+  width: 100%;
+  height: 90%;
+}
+
+.contentWrapper {
+  width: 100%;
+  height: 90%;
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .gridLayout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.heroTitle {
+  color: var(--White-color);
+  font-size: 42px;
+  font-weight: bold;
+}
+
+.heroSubtitle {
+  color: var(--White-color);
+  font-size: 18px;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.primaryCta1 {
+  background-color: var(--Secondary2-color); /* Couleur or */
+  color: var(--Gray1-color);
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0px 0px 10px var(--White-color); /* Ajout d'une ombre blanche */
+
+}
+
+.secondaryCta {
+  background-color: transparent;
+  color: var(--White-color);
+  padding: 15px 25px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px var(--White-color); /* Ajout d'une ombre blanche */
+}
+
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+}

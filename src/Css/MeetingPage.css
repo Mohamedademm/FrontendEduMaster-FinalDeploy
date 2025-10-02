@@ -1,0 +1,431 @@
+/* MeetingPage.css */
+:root {
+    --primary-blue: #e6f0ff;
+    --border-color: #e0e7ff;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --accent-color: #4db6ac;
+    --success-color: #4caf50;
+    --card-bg: #fff;
+    --hover-bg: #f5f9ff;
+    --separator: #eaeaea;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --rounded-sm: 8px;
+    --rounded-md: 12px;
+    --rounded-lg: 16px;
+  }
+  
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--text-primary);
+    background-color: var(--primary-blue);
+  }
+  
+  /* Main Layout */
+  .meeting-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .meeting-content {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    gap: 20px;
+  }
+  
+  .video-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--card-bg);
+    border-radius: var(--rounded-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  
+  .sidebarMeeting {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Meeting Header */
+  .meeting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--separator);
+  }
+  
+  .meeting-info h2 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .meeting-meta {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  
+  .dot-separator {
+    margin: 0 8px;
+  }
+  
+  .settings-button {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+  }
+  
+  .settings-button:hover {
+    background-color: var(--hover-bg);
+  }
+  
+  /* Main Video */
+  .main-video-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-video {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .main-speaker {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Video Controls */
+  .video-controls {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: var(--rounded-lg);
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(4px);
+  }
+  
+  .control-button {
+    background-color: var(--card-bg);
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--text-primary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .control-button:hover {
+    background-color: var(--hover-bg);
+    transform: translateY(-2px);
+  }
+  
+  .call-button {
+    background-color: #ff5252;
+    color: white;
+  }
+  
+  .call-button:hover {
+    background-color: #ff3d3d;
+  }
+  
+  /* Participants */
+  .participants-list {
+    display: flex;
+    gap: 12px;
+    padding: 12px 20px;
+  }
+  
+  .participant-thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--rounded-md);
+    overflow: hidden;
+    border: 2px solid white;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+  }
+  
+  .participant-thumbnail:hover {
+    transform: scale(1.05);
+  }
+  
+  .participant-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Course Content */
+  .course-content, .recommendations {
+    background-color: var(--card-bg);
+    border-radius: var(--rounded-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  
+  .sidebarMeeting-header, .recommendations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--separator);
+  }
+  
+  .sidebarMeeting-header h3, .recommendations-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .progress-badge {
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .calendar-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Content Sections */
+  .content-sections {
+    padding: 12px 0;
+  }
+  
+  .content-section {
+    margin-bottom: 8px;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .section-header:hover {
+    background-color: var(--hover-bg);
+  }
+  
+  .section-title {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .section-title span {
+    font-weight: 500;
+  }
+  
+  .section-meta {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+  
+  .section-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+  }
+  
+  .lesson-count {
+    font-size: 12px;
+  }
+  
+  /* Section Content (Lessons) */
+  .section-content {
+    padding: 0 8px;
+  }
+  
+  .lesson-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-radius: var(--rounded-sm);
+    margin: 4px 0;
+    transition: background-color 0.2s;
+  }
+  
+  .lesson-item:hover {
+    background-color: var(--hover-bg);
+  }
+  
+  .lesson-number {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--hover-bg);
+    border-radius: 50%;
+    font-size: 12px;
+    margin-right: 12px;
+  }
+  
+  .lesson-title {
+    flex: 1;
+    font-size: 14px;
+  }
+  
+  .lesson-duration {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-right: 8px;
+  }
+  
+  .completed .lesson-title, .completed .lesson-duration {
+    color: var(--accent-color);
+  }
+  
+  .check-icon {
+    color: var(--accent-color);
+  }
+  
+  /* Recommendations */
+  .recommendation-cards {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .recommendation-card {
+    flex: 1;
+    border-radius: var(--rounded-md);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .recommendation-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .card-image {
+    height: 80px;
+    overflow: hidden;
+  }
+  
+  .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-content {
+    padding: 12px;
+  }
+  
+  .card-content h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .card-price {
+    color: var(--accent-color);
+    font-weight: 600;
+  }
+  
+  /* Utility Classes */
+  .inline-icon {
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .meeting-content {
+      flex-direction: column;
+    }
+    
+    .sidebarMeeting {
+      width: 100%;
+    }
+    
+    .recommendation-cards {
+      overflow-x: auto;
+      padding-bottom: 12px;
+    }
+    
+    .recommendation-card {
+      min-width: 200px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .meeting-container {
+      padding: 10px;
+    }
+    
+    .participants-list {
+      justify-content: center;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .video-controls {
+      width: 90%;
+      gap: 8px;
+      padding: 12px;
+    }
+    
+    .control-button {
+      width: 36px;
+      height: 36px;
+    }
+    
+    .participant-thumbnail {
+      width: 60px;
+      height: 60px;
+    }
+  }

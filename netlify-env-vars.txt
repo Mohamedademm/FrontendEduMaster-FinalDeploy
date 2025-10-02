@@ -1,0 +1,21 @@
+# Variables d'environnement pour Netlify
+# Copie ces valeurs dans Netlify Dashboard -> Site settings -> Environment variables
+
+# URL de ton backend déployé (IMPORTANT)
+REACT_APP_API_URL=https://edumaster-backend-10b5.onrender.com/api
+REACT_APP_BACKEND_URL=https://edumaster-backend-10b5.onrender.com
+REACT_APP_FRONTEND_URL=https://ton-app.netlify.app
+
+# Google OAuth (utilise les mêmes que le backend)
+REACT_APP_GOOGLE_CLIENT_ID=105626979178-2rim262sbhd80pukq2u6nu32sfktvpjl.apps.googleusercontent.com
+
+# PayPal (utilise les mêmes que le backend)
+REACT_APP_PAYPAL_CLIENT_ID=AV0e_R2hacbkK6b5-LbrbIAKIOqAG7cW8EAR82HYVCMZppuqWG4ZODJ4MTW64iZoZMxViYSTJs_l7g1p
+
+# App Configuration
+REACT_APP_APP_NAME=EduMaster
+REACT_APP_VERSION=1.0.0
+
+# Build optimization
+GENERATE_SOURCEMAP=false
+CI=false

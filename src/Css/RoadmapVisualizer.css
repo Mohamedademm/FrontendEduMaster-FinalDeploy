@@ -1,0 +1,177 @@
+.visualizer-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+  background-color: #0f172a;
+  color: #fff;
+}
+
+.sidebar {
+  flex: 1;
+  padding: 20px;
+  border-right: 1px solid #334155;
+  background-color: #1e293b;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #3b82f6;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar h3 {
+  margin: 0 0 5px;
+  font-size: 1.1rem;
+}
+
+.sidebar p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #e2e8f0;
+}
+
+.flow-panel {
+  flex: 2;
+  background-color: #111827;
+}
+
+.topic-panel {
+  flex: 1;
+  padding: 20px;
+  background-color: #1e293b;
+  overflow-y: auto;
+  border-left: 1px solid #334155;
+}
+
+.topic-panel h2 {
+  margin-bottom: 0.75rem;
+  color: #3b82f6;
+}
+
+.topic-panel h4 {
+  margin-top: 2rem;
+  color: #fbbf24;
+}
+
+.topic-panel p {
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+.resources {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.resources li {
+  margin-bottom: 8px;
+}
+
+.resources a {
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.resources a:hover {
+  text-decoration: underline;
+}
+
+.empty-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.description-box {
+  max-width: 300px; /* Limit the width */
+  max-height: 400px; /* Limit the height */
+  overflow-y: auto; /* Add vertical scrolling */
+  padding: 15px;
+  background-color: #f9fafb; /* Light background */
+  border: 1px solid #e5e7eb; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  color: #111827; /* Dark text color */
+  font-size: 14px; /* Smaller font size */
+  line-height: 1.5; /* Improve readability */
+}
+
+.description-box h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #1f2937; /* Slightly darker heading color */
+}
+
+.description-box p {
+  margin-bottom: 10px;
+}
+
+.description-box ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.description-box ul li {
+  margin-bottom: 5px;
+}
+
+.description-box a {
+  color: #3b82f6; /* Blue link color */
+  text-decoration: none;
+}
+
+.description-box a:hover {
+  text-decoration: underline;
+}
+
+
+.library-button-RoadmapVisualizer {
+  margin: 8px;
+  padding: 16px 30px;
+  background-color: rgba(0, 0, 0, 0.3); /* Transparent glassy background */
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(0, 150, 255, 0.15);
+}
+
+.library-button-RoadmapVisualizer:hover {
+  background-color: rgba(0, 20, 40, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(0, 170, 255, 0.25);
+}

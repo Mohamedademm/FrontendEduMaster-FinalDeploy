@@ -1,0 +1,5 @@
+.reactflow-container {
+  width: 100%; /* Ensure full width */
+  height: 100vh; /* Ensure full height */
+  position: relative;
+}

@@ -1,0 +1,111 @@
+/* Overlay background for the pop-up */
+.react-confirm-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3); /* Darker background to highlight the pop-up */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  /* Style for the pop-up container */
+  .react-confirm-alert-container {
+    width: 500px; /* Adjust the width for balance */
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 90%; /* Ensures responsiveness */
+    animation: slideUp 0.3s ease-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 0.4s forwards;
+  }
+  
+  /* Title style */
+  .react-confirm-alert-title {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+  
+  /* Message style */
+  .react-confirm-alert-message {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+  
+  /* Button group */
+  .react-confirm-alert-button-group {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  
+  /* Button common style */
+  .react-confirm-alert-button {
+    padding: 14px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 45%;
+    font-weight: 500;
+  }
+  
+  /* Confirm (Yes) button */
+  .react-confirm-alert-button:first-child {
+    background: #007bff; /* Blue color */
+    color: white;
+  }
+  
+  .react-confirm-alert-button:first-child:hover {
+    background: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
+  }
+  
+  /* Cancel (No) button */
+  .react-confirm-alert-button:last-child {
+    background: #f44336; /* Red color */
+    color: white;
+  }
+  
+  .react-confirm-alert-button:last-child:hover {
+    background: #d32f2f; /* Darker red on hover */
+    transform: translateY(-2px);
+  }
+  
+  /* Animation for fade-in effect */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Animation for the box sliding up */
+  @keyframes slideUp {
+    0% {
+      transform: translateY(30px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  

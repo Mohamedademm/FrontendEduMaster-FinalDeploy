@@ -1,0 +1,97 @@
+/* Modern Instructors Design */
+.sectionInstructors {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionInstructors::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(102, 126, 234, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(118, 75, 162, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.containerInstructors {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.titleInstructors {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.titleInstructors::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+}
+
+.cardContainerInstructors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.instructor-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 250px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.instructor-card:hover {
+  transform: translateY(-5px);
+}
+
+.instructor-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.instructor-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #093B3B;
+}
+
+.instructor-expertise {
+  font-size: 1rem;
+  color: #666;
+}
+
+.instructor-students {
+  font-size: 0.9rem;
+  color: #333;
+  font-weight: 500;
+}

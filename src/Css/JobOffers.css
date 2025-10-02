@@ -1,0 +1,438 @@
+/* JobOffers.css */
+
+/* Scroll Smooth */
+html {
+  scroll-behavior: smooth;
+}
+
+/* JobOffers Page Global Styles */
+.JobOffers-page {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--gray3-color);
+  color: var(--Gray1-color);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Bouton ajouter offre */
+.bouttonjoboffers {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  user-select: none;
+}
+
+.bouttonjoboffers:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.bouttonjoboffers:disabled {
+  background-color: #a0a8b9;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Header */
+.JobOffers-header-container {
+  background-color: var(--Primary900-color);
+  color: var(--White-color);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.JobOffers-logo img {
+  width: 50px;
+  height: auto;
+}
+
+.JobOffers-header-container h1 {
+  font-size: 1.8rem;
+  margin: 0 1rem;
+  flex: 1;
+}
+
+.JobOffers-header-container nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.JobOffers-header-container nav ul li a {
+  color: var(--White-color);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 600;
+}
+
+.JobOffers-header-container nav ul li a:hover,
+.JobOffers-header-container nav ul li a:focus {
+  color: var(--Secondary2-color);
+  outline: none;
+}
+
+/* Inputs & Search bar */
+.JobOffers-search-bar input,
+form[aria-label="Search job offers"] input,
+.add-offer-form input,
+.add-offer-form textarea,
+.JobOffers-application form input,
+.JobOffers-application form textarea,
+.JobOffers-application form input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1.5px solid var(--gray2-color);
+  border-radius: 6px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Roboto', sans-serif;
+  resize: vertical;
+  box-sizing: border-box;
+  margin-top: 0.25rem;
+}
+
+.JobOffers-search-bar input:focus,
+form[aria-label="Search job offers"] input:focus,
+.add-offer-form input:focus,
+.add-offer-form textarea:focus,
+.JobOffers-application form input:focus,
+.JobOffers-application form textarea:focus {
+  border-color: var(--Primary700-color);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.35);
+  outline: none;
+}
+
+/* Search form */
+form[aria-label="Search job offers"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+form[aria-label="Search job offers"] input {
+  flex: 1 1 40%;
+  min-width: 150px;
+}
+
+form[aria-label="Search job offers"] button {
+  flex: 0 0 auto;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--Primary700-color);
+  color: var(--White-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.15);
+}
+
+form[aria-label="Search job offers"] button:hover:not(:disabled) {
+  background-color: var(--Primary800-color);
+}
+
+form[aria-label="Search job offers"] button:disabled {
+  background-color: var(--gray2-color);
+  cursor: not-allowed;
+}
+
+/* Job List Section */
+.job-offers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1rem;
+}
+
+.job-offer {
+  background-color: var(--White-color);
+  padding: 1.5rem 1.8rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.job-offer:hover,
+.job-offer:focus-within {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  outline: none;
+}
+
+.job-offer h3 {
+  margin-bottom: 0.6rem;
+  color: var(--Primary900-color);
+  font-weight: 700;
+}
+
+.job-offer p {
+  margin-bottom: 0.75rem;
+  color: var(--Gray900-color);
+  flex-grow: 1;
+}
+
+.job-offer button {
+  align-self: flex-start;
+  background-color: var(--Secondary2-color);
+  color: var(--White-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.15);
+}
+
+.job-offer button:hover:not(:disabled) {
+  background-color: var(--Secondary1-color);
+  transform: translateY(-1px);
+}
+
+.job-offer button:disabled {
+  background-color: var(--gray2-color);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Section Titles */
+.JobOffers-culture,
+.JobOffers-benefits,
+.JobOffers-process,
+.JobOffers-faq {
+  background-color: var(--White-color);
+  padding: 1.5rem 2rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.14);
+}
+
+.JobOffers-culture h2,
+.JobOffers-benefits h2,
+.JobOffers-process h2,
+.JobOffers-faq h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--Primary900-color);
+  font-weight: 700;
+}
+
+/* Benefits list */
+.JobOffers-benefits ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: var(--Gray900-color);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.JobOffers-benefits ul li {
+  margin-bottom: 0.6rem;
+}
+
+/* Process Section */
+.JobOffers-process ol {
+  padding-left: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--Gray900-color);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.JobOffers-process p {
+  font-size: 1rem;
+  color: var(--Gray700-color);
+}
+
+/* FAQ Section */
+.faq-item {
+  margin-bottom: 1.2rem;
+}
+
+.faq-question {
+  background-color: var(--Primary700-color);
+  color: var(--White-color);
+  padding: 0.75rem 1rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  position: relative;
+}
+
+.faq-question:hover,
+.faq-question:focus {
+  background-color: var(--Primary800-color);
+  outline: none;
+}
+
+/* Arrow */
+.faq-question::after {
+  content: "▼";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-question[aria-expanded="true"]::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0.75rem 1.2rem;
+  border-left: 4px solid var(--Primary700-color);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--Gray900-color);
+  background-color: #f8f9fa;
+  border-radius: 0 6px 6px 0;
+}
+
+/* Application Form */
+.JobOffers-application,
+.add-offer-form {
+  background-color: var(--White-color);
+  padding: 1.5rem 2rem;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.14);
+}
+
+.JobOffers-application h2,
+.add-offer-form legend {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--Primary900-color);
+}
+
+.add-offer-form label,
+.JobOffers-application form label {
+  display: block;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 1rem;
+  color: var(--Primary900-color);
+}
+
+.add-offer-form input,
+.add-offer-form textarea,
+.JobOffers-application form input,
+.JobOffers-application form textarea {
+  margin-top: 0.3rem;
+}
+
+/* Buttons in forms */
+.btn-submit-application,
+.add-offer-form button {
+  margin-top: 1.5rem;
+  background-color: var(--Secondary2-color);
+  color: var(--White-color);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  user-select: none;
+}
+
+.btn-submit-application:hover:not(:disabled),
+.add-offer-form button:hover:not(:disabled) {
+  background-color: var(--Secondary1-color);
+  transform: translateY(-2px);
+}
+
+.btn-submit-application:disabled,
+.add-offer-form button:disabled {
+  background-color: var(--gray2-color);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Upload status messages */
+.upload-status {
+  margin-top: 12px;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.upload-status.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.upload-status.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Focus visible outline */
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid var(--Secondary2-color);
+  outline-offset: 3px;
+}
+
+/* Tooltip "?" */
+label span[title] {
+  cursor: help;
+  margin-left: 6px;
+  color: var(--Primary700-color);
+  font-weight: 700;
+  user-select: none;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .job-offers-list {
+    grid-template-columns: 1fr;
+  }
+
+  form[aria-label="Search job offers"] {
+    flex-direction: column;
+  }
+
+  .bouttonjoboffers {
+    font-size: 18px;
+    padding: 12px 25px;
+  }
+}

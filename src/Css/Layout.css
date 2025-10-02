@@ -1,0 +1,25 @@
+/* Layout.css */
+
+.layoutContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    /* Vous pouvez personnaliser le header */
+  }
+  
+  .mainContent {
+    flex: 1;
+    padding: 20px;
+    background-color: #f0f0f0; /* Par exemple, une couleur de fond */
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+  }
+  

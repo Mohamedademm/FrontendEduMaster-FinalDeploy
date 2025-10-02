@@ -1,0 +1,135 @@
+/* Modern PopularCourseCard Design */
+.popularCourseCard {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  flex: 1;
+}
+
+.popularCourseCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.popularCourseCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+  
+.courseImage {
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.popularCourseCard:hover .courseImage {
+  transform: scale(1.1);
+}
+
+.courseInfo {
+  padding: 2rem;
+  position: relative;
+}
+
+.courseTitle {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+  
+.instructorInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.instructorAvatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e2e8f0;
+}
+
+.instructorName {
+  color: #4a5568;
+  font-size: 1rem;
+  font-weight: 600;
+}
+  
+.courseStats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+  
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+  
+.ratingIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+  
+.ratingText {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.875rem;
+}
+  
+.startLearningButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+  
+.startLearningButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+  .popularCourseCard {
+    margin-top: 2rem;
+  }
+  
+  .courseInfo {
+    padding: 1.5rem;
+  }
+  
+  .courseStats {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .startLearningButton {
+    width: 100%;
+    text-align: center;
+  }
+}

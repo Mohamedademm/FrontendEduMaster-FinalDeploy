@@ -1,0 +1,919 @@
+/* Style moderne pour MicroCours - Harmonisé avec CreeTecherMicroCours */
+.microCours {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+.microCours::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 69, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Modern Header */
+.microCours-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1000;
+}
+
+.microCours-header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.microCours-sidebar-toggle {
+  background: linear-gradient(135deg, #FF4500 0%, #FF6B35 100%);
+  border: none;
+  border-radius: 12px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+}
+
+.microCours-sidebar-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 69, 0, 0.4);
+}
+
+.microCours-header-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.microCours-header-icon {
+  color: #FF4500;
+  font-size: 32px;
+}
+
+.microCours-header-title h1 {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c3e50 0%, #FF4500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+/* Course Info Section */
+.microCours-course-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 69, 0, 0.2);
+}
+
+.microCours-course-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.microCours-add-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.microCours-add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+
+/* Action buttons container */
+.microCours-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Typing App Button */
+.microCours-typing-btn {
+  background: linear-gradient(135deg, #6c63ff 0%, #5a52ff 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.microCours-typing-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.microCours-typing-btn:hover::before {
+  left: 100%;
+}
+
+.microCours-typing-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+  background: linear-gradient(135deg, #7c73ff 0%, #6b62ff 100%);
+}
+
+.microCours-typing-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(108, 99, 255, 0.3);
+}
+
+.microCours-typing-icon {
+  font-size: 16px;
+  animation: typing-pulse 2s infinite ease-in-out;
+}
+
+.microCours-speed-icon {
+  font-size: 12px;
+  opacity: 0.8;
+  animation: speed-rotate 3s infinite linear;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes typing-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes speed-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Main Layout */
+.microCours-layout {
+  display: flex;
+  height: calc(100vh - 80px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebar Styles */
+.microCours-sidebar {
+  width: 320px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 69, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.microCours-sidebar.collapsed {
+  width: 0;
+  overflow: hidden;
+}
+
+.microCours-sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+}
+
+.microCours-sidebar-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.microCours-sidebar-content {
+  padding: 20px;
+}
+
+/* Item Styles */
+.microCours-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 69, 0, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.microCours-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(135deg, #FF4500 0%, #FF6B35 100%);
+  transition: width 0.3s ease;
+}
+
+.microCours-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(255, 69, 0, 0.2);
+  border-color: rgba(255, 69, 0, 0.3);
+}
+
+.microCours-item:hover::before {
+  width: 4px;
+}
+
+.microCours-item.selected {
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+  border-color: #FF4500;
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(255, 69, 0, 0.3);
+}
+
+.microCours-item.selected::before {
+  width: 4px;
+}
+
+.microCours-item-icon {
+  color: #FF4500;
+  font-size: 20px;
+  min-width: 20px;
+}
+
+.microCours-item-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0;
+  flex: 1;
+}
+
+.microCours-item-type {
+  font-size: 12px;
+  color: #7f8c8d;
+  background: rgba(255, 69, 0, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Main Content Area */
+.microCours-main-content {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  position: relative;
+}
+
+.microCours-content-header {
+  padding: 30px 40px 20px;
+  border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.05) 0%, rgba(255, 107, 53, 0.05) 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.microCours-content-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.microCours-content-subtitle {
+  font-size: 14px;
+  color: #7f8c8d;
+  margin: 0;
+  font-weight: 500;
+}
+
+.microCours-content-body {
+  padding: 30px 40px;
+}
+
+/* Content Item Styles */
+.microCours-content-item {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 69, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.microCours-content-item p {
+  line-height: 1.8;
+  color: #2c3e50;
+  margin: 0;
+  font-size: 16px;
+}
+
+.microCours-content-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.microCours-content-item video {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.microCours-content-item iframe {
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Test/Quiz Styles */
+.microCours-test-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
+  border: 1px solid rgba(52, 152, 219, 0.2);
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.microCours-test-duration {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #3498db;
+}
+
+.microCours-question {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 69, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.microCours-question-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.microCours-question-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.microCours-question-option {
+  margin-bottom: 12px;
+}
+
+.microCours-question-option label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 69, 0, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  color: #2c3e50;
+}
+
+.microCours-question-option label:hover {
+  background: rgba(255, 69, 0, 0.05);
+  border-color: rgba(255, 69, 0, 0.3);
+  transform: translateX(2px);
+}
+
+.microCours-question-option input[type="radio"] {
+  accent-color: #FF4500;
+  width: 18px;
+  height: 18px;
+}
+
+.microCours-answer-feedback {
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.microCours-answer-correct {
+  color: #27ae60;
+}
+
+.microCours-answer-incorrect {
+  color: #e74c3c;
+}
+
+/* Buttons */
+.microCours-submit-btn {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 15px 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+  margin-top: 20px;
+}
+
+.microCours-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+}
+
+.microCours-score-display {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.1) 0%, rgba(46, 204, 113, 0.1) 100%);
+  border: 1px solid rgba(39, 174, 96, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.microCours-score-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: #27ae60;
+  margin: 0;
+}
+
+/* Empty State */
+.microCours-empty-state {
+  text-align: center;
+  padding: 60px 40px;
+  color: #7f8c8d;
+}
+
+.microCours-empty-icon {
+  font-size: 48px;
+  color: #bdc3c7;
+  margin-bottom: 20px;
+}
+
+.microCours-empty-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Loading State */
+.microCours-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.microCours-loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #FF4500;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Learning Tools Section in Sidebar */
+.microCours-tools-section {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 69, 0, 0.1);
+  background: linear-gradient(135deg, rgba(108, 99, 255, 0.05) 0%, rgba(90, 82, 255, 0.05) 100%);
+}
+
+.microCours-tools-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6c63ff;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.microCours-tools-icon {
+  font-size: 16px;
+}
+
+.microCours-tool-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(108, 99, 255, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.microCours-tool-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.microCours-tool-item:hover::before {
+  left: 100%;
+}
+
+.microCours-tool-item:hover {
+  background: rgba(108, 99, 255, 0.1);
+  border-color: #6c63ff;
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(108, 99, 255, 0.2);
+}
+
+.microCours-tool-icon {
+  font-size: 18px;
+  color: #6c63ff;
+  animation: tool-bounce 2s infinite ease-in-out;
+}
+
+.microCours-tool-name {
+  flex: 1;
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.microCours-tool-badge {
+  font-size: 12px;
+  color: #6c63ff;
+  background: rgba(108, 99, 255, 0.1);
+  padding: 4px 6px;
+  border-radius: 50%;
+  animation: badge-spin 3s infinite linear;
+}
+
+@keyframes tool-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes badge-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Content Section in Sidebar */
+.microCours-content-section {
+  padding: 16px 20px;
+}
+
+.microCours-content-section-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #FF4500;
+  margin: 0 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.microCours-content-section-title::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  background: linear-gradient(135deg, #FF4500 0%, #FF6B35 100%);
+  border-radius: 2px;
+}
+
+/* Study Game Button */
+.microCours-study-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.microCours-study-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.microCours-study-btn:hover::before {
+  left: 100%;
+}
+
+.microCours-study-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+}
+
+.microCours-study-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.microCours-study-icon {
+  font-size: 16px;
+  animation: study-bounce 2s infinite ease-in-out;
+}
+
+.microCours-quiz-icon {
+  font-size: 12px;
+  opacity: 0.8;
+  animation: quiz-pulse 3s infinite ease-in-out;
+}
+
+@keyframes study-bounce {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+}
+
+@keyframes quiz-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* CodeMaster Button */
+.microCours-codemaster-btn {
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.microCours-codemaster-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.microCours-codemaster-btn:hover::before {
+  left: 100%;
+}
+
+.microCours-codemaster-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+}
+
+.microCours-codemaster-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+}
+
+.microCours-codemaster-icon {
+  font-size: 16px;
+  animation: code-pulse 2s infinite ease-in-out;
+}
+
+.microCours-rocket-icon {
+  font-size: 12px;
+  opacity: 0.8;
+  animation: rocket-fly 3s infinite ease-in-out;
+}
+
+@keyframes code-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes rocket-fly {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-2px) rotate(5deg); }
+  75% { transform: translateY(-1px) rotate(-3deg); }
+}
+
+/* CodeLive Button */
+.microCours-codelive-btn {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.microCours-codelive-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.microCours-codelive-btn:hover::before {
+  left: 100%;
+}
+
+.microCours-codelive-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.4);
+  background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+}
+
+.microCours-codelive-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.3);
+}
+
+.microCours-codelive-icon {
+  font-size: 16px;
+  animation: live-pulse 2s infinite ease-in-out;
+}
+
+.microCours-live-icon {
+  font-size: 12px;
+  opacity: 0.8;
+  animation: live-glow 3s infinite ease-in-out;
+}
+
+@keyframes live-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); filter: brightness(1.2); }
+}
+
+@keyframes live-glow {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .microCours-header {
+    padding: 15px 20px;
+  }
+  
+  .microCours-sidebar {
+    width: 280px;
+  }
+  
+  .microCours-main-content {
+    margin: 10px;
+  }
+  
+  .microCours-content-header,
+  .microCours-content-body {
+    padding: 20px;
+  }
+  
+  .microCours-content-title {
+    font-size: 24px;
+  }
+  
+  .microCours-action-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+    .microCours-typing-btn,
+  .microCours-study-btn,
+  .microCours-codemaster-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .microCours-typing-btn span,
+  .microCours-study-btn span,
+  .microCours-codemaster-btn span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .microCours-layout {
+    flex-direction: column;
+  }
+  
+  .microCours-sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+  
+  .microCours-main-content {
+    height: auto;
+    flex: 1;
+  }
+}

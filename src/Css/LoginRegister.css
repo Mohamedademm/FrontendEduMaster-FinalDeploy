@@ -1,0 +1,220 @@
+/* ---- Styles Généraux ---- */
+.background-gradientLR {
+  width: 100%;
+  height: 120vh;
+  background: linear-gradient(135deg, var(--Secondary1-color) 40%, var(--Primary700-color) 60%);
+  background-size: 400% 400%;
+  animation: gradientAnimation 3s ease infinite;
+  transition: background 0.5s ease-in-out;
+}
+
+/* Animation du gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/*fsdfdsf
+/* ---- General Styles ---- 
+.background-gradientLR {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--Secondary1-color) 40%, var(--Primary900-color) 60%);
+  transition: background 0.5s ease-in-out; /* Transition douce pour le changement de couleur */
+/*}
+
+/* ---- When the Register Button is Clicked ---- 
+body.register-active .background-gradientLR {
+  background: linear-gradient(135deg, var(--Primary900-color) 40%, var(--Secondary1-color) 60%);
+  transition: background 0.5s ease-in-out;
+}
+
+/* ---- When the Register Button is Clicked (Body) ---- 
+body.register-active {
+  background: linear-gradient(135deg, var(--Secondary1-color) 40%, var(--Primary900-color) 60%);
+  transition: background 0.5s ease-in-out;
+}
+*/
+  
+/* ---- Content Container ---- */
+.contentLR {
+  background: var(--White-color);
+  border-radius: 45px;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  top: 30%;
+  min-height: 450px;
+  max-width: 800px;
+  box-shadow: 0 4px 20px var(--White-color);
+  display: flex;
+  justify-content: space-between;
+  transition: 0.5s ease-in-out;
+  position: absolute;
+  right: 200px; /* Décalage vers la droite */
+}
+
+/* ---- Form Containers ---- */
+.col-md-6LR {
+  width: 50%;
+  padding: 50px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Input Fields ---- */
+.input-groupLR input {
+    padding: 10px;
+    margin: 2%;
+    border: 1px solid var(--gray2-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--White-color);
+    color: var(--Gray1-color);
+  transition: 0.3s;
+}
+
+.input-groupLR input:focus {
+  border-color: #82257b;
+  background: var(--White-color);
+  outline: none;
+  box-shadow: 0 0 8px rgba(130, 37, 123, 0.3);
+}
+
+
+/* ---- Right Box ---- */
+.right-boxLR {
+  background: var(--White-color);
+  border-radius: 0 40px 40px 0;
+  padding-right: 7%;
+  padding-top: 10%;
+}
+
+/* ---- Switch Panel ---- */
+.switch-contentLR {
+  position: absolute;
+  top: 0;
+  right: auto;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  border-radius: 0 60px 60px 0;
+  z-index: 1000;
+}
+
+.contentLR.active .switch-contentLR {
+  transform: translateX(100%);
+  border-radius: 60px 0 0 60px;
+}
+
+.switchLR {
+  background: var(--Secondary1-color);
+  height: 100%;
+  color: var(--White-color);
+  position: relative;
+  left: -100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentLR.active .switchLR {
+  transform: translateX(50%);
+}
+
+/* ---- Switch Panels ---- */
+.switch-panelLR {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  text-align: center;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+
+.switch-leftLR {
+  transform: translateX(-200%);
+}
+
+.contentLR.active .switch-leftLR {
+  transform: translateX(0);
+}
+
+.switch-rightLR {
+  right: 0;
+  transform: translateX(0);
+}
+
+.contentLR.active .switch-rightLR {
+  transform: translateX(200%);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .contentLR {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .col-md-6LR {
+    width: 100%;
+  }
+  .switch-contentLR {
+    width: 100%;
+    border-radius: 0 0 40px 40px;
+    position: relative;
+  }
+}
+/* ---- Bouton Afficher le Mot de Passe ---- */
+.toggle-passwordLR {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #000;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.toggle-passwordLR:hover {
+  color: var(--Primary700-color);
+}
+
+
+.form-check{
+  display: none;
+}
+
+.button-loginRegister-login,
+.button-loginRegister-register {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  width: 50%;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-loginRegister-login:hover,
+.button-loginRegister-register:hover {
+  background-color: var(--Primary700-color);
+  color: white;
+}

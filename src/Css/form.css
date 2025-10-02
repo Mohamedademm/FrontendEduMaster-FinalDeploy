@@ -1,0 +1,171 @@
+/* General input styles */
+.formgroupRegister {
+    margin-bottom: 10px;
+    margin-left: 10%;
+}
+.form-group-Login {
+    margin-bottom: 10px;
+}
+
+.input-groupLR input {
+    padding: 8px;
+    margin: 4px 0;
+    border: 1px solid var(--gray2-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: var(--White-color);
+    color: var(--Gray1-color);
+    transition: 0.3s;
+    width: auto;
+}
+
+.input-groupLR input:focus {
+    border-color: var(--Primary700-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(130, 37, 123, 0.3);
+}
+
+
+/* Password input container */
+.input-groupLR.position-relative {
+    position: relative;
+}
+
+
+
+.btn-primary {
+    background-color: var(--Primary700-color);
+    color: white;
+    width: 86%;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: white;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-google:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.google-icon {
+    font-size: 20px;
+    color: #4285F4;
+    background: linear-gradient(to right, #4285F4, #EA4335 33%, #FBBC05 66%, #34A853);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Password toggle icon */
+.setShowLoginPassword {
+    position: absolute;
+    right: 15px; /* Adjust spacing from the right */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px; /* Slightly larger for better visibility */
+    color: #555;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.setShowLoginPassword:hover {
+    color: var(--Primary700-color);
+}
+
+.password-input {
+    position: relative;
+}
+
+.button-login-setShowLoginPassword {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #555;
+    padding: 0px;
+    transition: color 0.3s ease;
+}
+
+.button-login-setShowLoginPassword:hover {
+    color: var(--Primary700-color);
+}
+
+.password-input {
+    position: relative;
+}
+
+.password-input span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.google-login, .google-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.google-login, .google-register {
+    align-items: flex-start; /* Align items to the start */
+    flex-direction: column;
+    display: flex;
+}
+
+
+
+.google-login:hover, .google-register:hover {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    background-color: #4285F4;
+}
+
+.button-register-setShowRegisterPassword {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #000;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.button-register-setShowRegisterPassword:hover {
+    color: var(--Primary700-color);
+}

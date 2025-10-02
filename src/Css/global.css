@@ -1,0 +1,91 @@
+/* Reset all button styles globally */
+button {
+    all: unset; /* Reset all styles */
+    box-sizing: border-box;
+}
+
+/* Primary button styles */
+.btn-primary {
+    background-color: var(--Primary700-color);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: var(--Primary900-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary button styles */
+.btn-secondary {
+    background-color: var(--Secondary2-color);
+    color: var(--Primary900-color);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--Primary700-color);
+    color: white;
+}
+
+/* Google button styles */
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: white;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-google:hover {
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Google icon styling */
+.google-icon {
+    font-size: 20px;
+    color: #4285F4; /* Blue */
+    background: linear-gradient(to right, #4285F4, #EA4335 33%, #FBBC05 66%, #34A853);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Destructive button styles */
+.btn-destructive {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-destructive:hover {
+    background-color: #d32f2f;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,59 @@
+.categories-section {
+    background-image:  url('../images/WhatsApp1.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #e0d0d0; /* Set text color to white for better visibility on the background image */
+    padding: 50px 0; /* Adjust padding as needed */
+    
+  }
+  
+  .categories-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .category-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+  }
+  
+  .category-item {
+    background-color: rgba(14, 6, 6, 6.1); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .category-item:hover {
+    background-color: rgba(0, 0, 0, 0.3); /* Lighter semi-transparent white background on hover */
+  }
+  
+  .category-item-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .category-item-description {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .category-item-link {
+    color: #3b1a94;
+    text-decoration: none;
+    border-bottom: 1px solid #3b1a94;
+    transition: border-color 0.3s ease;
+  }
+  
+  .category-item-link:hover {
+    border-color: transparent;
+  }
+  

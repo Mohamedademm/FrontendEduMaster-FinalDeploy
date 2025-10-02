@@ -1,0 +1,77 @@
+/* Couleurs et typographie */
+:root {
+    --primary900: #093B3B;
+    --primary700: #136E61;
+    --secondary1: #22093B;
+    --secondary2: #EAF141;
+    --background: #f4f7fa;
+  }
+  
+  /* Conteneur principal */
+  .coursHTML-container {
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--primary900);
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* En-tête */
+  .coursHTML-header {
+    background-color: var(--primary700);
+    color: var(--secondary2);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Navigation */
+  .coursHTML-nav {
+    background-color: var(--secondary2);
+    padding: 10px 0;
+  }
+  
+  .coursHTML-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .coursHTML-nav li {
+    margin: 0 15px;
+  }
+  
+  .coursHTML-nav a {
+    text-decoration: none;
+    color: var(--secondary1);
+    font-weight: bold;
+  }
+  
+  /* Contenu principal */
+  .coursHTML-main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+  }
+  
+  .coursHTML-main section {
+    margin-bottom: 30px;
+  }
+  
+  .coursHTML-main h2 {
+    color: var(--primary700);
+    border-bottom: 2px solid var(--primary700);
+    padding-bottom: 5px;
+  }
+  
+  /* Pied de page */
+  .coursHTML-footer {
+    background-color: var(--primary700);
+    color: var(--secondary2);
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+  }
+  

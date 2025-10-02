@@ -1,0 +1,44 @@
+/* Container for the creation form */
+.creationM-container {
+    padding: 100px;
+    background: linear-gradient(135deg, #000, #333); /* Black gradient */
+    color: #fff;
+    text-align: center;
+    width: 85%;
+    margin-left: 19%;  
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Title styling */
+  .creationM-container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Form input fields styling */
+  .creationM-field {
+    margin: 10px 0;
+  }
+  
+  .creationM-field input {
+    color: #000; /* Black text inside inputs */
+    background-color: #fff;
+    border-radius: 4px;
+  }
+  
+  /* Button styling */
+  .creationM-button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #1de9b6; /* Turquoise button */
+    border: none;
+    color: #000; /* Black text */
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .creationM-button:hover {
+    background-color: #00bfa5; /* Darker turquoise on hover */
+  }

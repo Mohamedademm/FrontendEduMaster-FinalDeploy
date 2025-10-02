@@ -1,0 +1,47 @@
+.online-classes {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.online-classes h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.online-classes ul {
+  list-style: none;
+  padding: 0;
+}
+
+.online-classes li {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.online-classes li h3 {
+  margin: 0 0 10px;
+}
+
+.online-classes li p {
+  margin: 0 0 10px;
+}
+
+.online-classes button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.online-classes button:hover {
+  background-color: #0056b3;
+}

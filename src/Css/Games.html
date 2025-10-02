@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Master Pro</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            margin-bottom: 10px;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+
+        .mode-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .mode-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        select, button {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        select:focus, button:focus {
+            outline: none;
+            border-color: #4ecdc4;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+        }
+
+        button {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+        }
+
+        .btn-warning {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .text-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-height: 200px;
+            position: relative;
+        }
+
+        .text-display {
+            font-size: 1.4rem;
+            line-height: 2;
+            font-family: 'Courier New', monospace;
+            color: rgba(255, 255, 255, 0.6);
+            text-align: justify;
+        }
+
+        .char-correct {
+            background: rgba(76, 175, 80, 0.3);
+            color: #4caf50;
+            border-radius: 4px;
+            padding: 2px 1px;
+        }
+
+        .char-incorrect {
+            background: rgba(244, 67, 54, 0.3);
+            color: #f44336;
+            border-radius: 4px;
+            padding: 2px 1px;
+        }
+
+        .char-current {
+            background: #4ecdc4;
+            color: white;
+            border-radius: 4px;
+            padding: 2px 1px;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .keyboard-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 20px;
+        }
+
+        .keyboard-title {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .keyboard-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px;
+            gap: 4px;
+        }
+
+        .key {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            min-width: 45px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: default;
+            user-select: none;
+        }
+
+        .key.space {
+            min-width: 200px;
+        }
+
+        .key.active {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+            transform: scale(1.05);
+            border-color: #4ecdc4;
+        }
+
+        .progress-container {
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .progress-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .pause-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+        }
+
+        .pause-content {
+            text-align: center;
+            color: white;
+        }
+
+        .pause-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .controls {
+                justify-content: center;
+            }
+            
+            .text-display {
+                font-size: 1.1rem;
+            }
+            
+            .mode-toggle {
+                position: static;
+                margin-top: 20px;
+            }
+        }
+
+        /* Finger colors */
+        .finger-thumb { background-color: #10B981 !important; }
+        .finger-index-left { background-color: #3B82F6 !important; }
+        .finger-middle-left { background-color: #8B5CF6 !important; }
+        .finger-ring-left { background-color: #F59E0B !important; }
+        .finger-pinky-left { background-color: #EF4444 !important; }
+        .finger-index-right { background-color: #06B6D4 !important; }
+        .finger-middle-right { background-color: #EC4899 !important; }
+        .finger-ring-right { background-color: #F97316 !important; }
+        .finger-pinky-right { background-color: #DC2626 !important; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Typing Master Pro</h1>
+            <p class="subtitle">Améliorez votre vitesse de frappe avec style</p>
+            <button class="mode-toggle" onclick="toggleDarkMode()">
+                <i class="fas fa-moon"></i>
+            </button>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <i class="fas fa-bolt stat-icon" style="color: #ffd700;"></i>
+                <div class="stat-value" id="wpm">0</div>
+                <div class="stat-label">MPM</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-bullseye stat-icon" style="color: #4caf50;"></i>
+                <div class="stat-value" id="accuracy">100</div>
+                <div class="stat-label">Précision %</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-clock stat-icon" style="color: #2196f3;"></i>
+                <div class="stat-value" id="timer">0:00</div>
+                <div class="stat-label">Temps</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-trophy stat-icon" style="color: #9c27b0;"></i>
+                <div class="stat-value" id="best-wpm">0</div>
+                <div class="stat-label">Record MPM</div>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-times stat-icon" style="color: #f44336;"></i>
+                <div class="stat-value" id="errors">0</div>
+                <div class="stat-label">Erreurs</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <select id="difficulty">
+                    <option value="beginner">Débutant</option>
+                    <option value="intermediate">Intermédiaire</option>
+                    <option value="advanced">Avancé</option>
+                </select>
+                <select id="layout">
+                    <option value="AZERTY">AZERTY</option>
+                    <option value="QWERTY">QWERTY</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <button id="start-btn" class="btn-primary" onclick="startTest()">
+                    <i class="fas fa-play"></i> Commencer
+                </button>
+                <button id="pause-btn" class="btn-warning hidden" onclick="pauseTest()">
+                    <i class="fas fa-pause"></i> Pause
+                </button>
+                <button class="btn-secondary" onclick="resetTest()">
+                    <i class="fas fa-redo"></i> Recommencer
+                </button>
+            </div>
+        </div>
+
+        <div class="text-container">
+            <div class="text-display" id="text-display"></div>
+            <div id="pause-overlay" class="pause-overlay hidden">
+                <div class="pause-content">
+                    <i class="fas fa-pause pause-icon"></i>
+                    <p>Test en pause - Cliquez sur Reprendre pour continuer</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="keyboard-container" id="keyboard-container">
+            <h3 class="keyboard-title">Clavier virtuel</h3>
+            <div id="keyboard"></div>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+            <div class="progress-text" id="progress-text">Progression: 0 / 0 caractères (0%)</div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration et données
+        const textLibrary = {
+            beginner: [
+                "Le chat mange sa nourriture dans son bol rouge. Il boit de l'eau fraîche après chaque repas.",
+                "Les fleurs du jardin sentent bon au printemps. Les abeilles butinent de pétale en pétale.",
+                "Marie lit un livre passionnant sous un grand arbre. Le vent fait danser les feuilles vertes."
+            ],
+            intermediate: [
+                "La technologie moderne transforme notre façon de communiquer et de travailler. Les smartphones sont devenus indispensables dans notre vie quotidienne.",
+                "L'intelligence artificielle révolutionne de nombreux secteurs d'activité. Elle permet d'automatiser des tâches complexes et d'améliorer l'efficacité.",
+                "Le développement durable est un enjeu majeur du 21e siècle. Il faut repenser nos modes de consommation pour préserver l'environnement."
+            ],
+            advanced: [
+                "L'épistémologie contemporaine interroge les fondements de la connaissance scientifique et questionne la méthodologie traditionnelle de la recherche empirique.",
+                "Les algorithmes de machine learning exploitent des réseaux de neurones artificiels pour identifier des patterns complexes dans des datasets massifs.",
+                "La géopolitique internationale se caractérise par des interdépendances économiques croissantes et des tensions diplomatiques exacerbées."
+            ]
+        };
+
+        const layouts = {
+            AZERTY: [
+                ["&", "é", '"', "'", "(", "-", "è", "_", "ç", "à", ")", "="],
+                ["a", "z", "e", "r", "t", "y", "u", "i", "o", "p", "^", "$"],
+                ["q", "s", "d", "f", "g", "h", "j", "k", "l", "m", "ù", "*"],
+                ["Shift", "w", "x", "c", "v", "b", "n", ",", ";", ":", "!"],
+                ["Space"],
+            ],
+            QWERTY: [
+                ["`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "="],
+                ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]"],
+                ["a", "s", "d", "f", "g", "h", "j", "k", "l", "m", ";", "'"],
+                ["Shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/"],
+                ["Space"],
+            ],
+        };
+
+        const keyToFinger = {
+            'a': 'finger-pinky-left', 'z': 'finger-pinky-left', 'q': 'finger-pinky-left',
+            's': 'finger-ring-left', 'w': 'finger-ring-left',
+            'd': 'finger-middle-left', 'e': 'finger-middle-left',
+            'f': 'finger-index-left', 'r': 'finger-index-left',
+            'g': 'finger-index-left', 't': 'finger-index-left',
+            'h': 'finger-index-right', 'y': 'finger-index-right',
+            'j': 'finger-middle-right', 'u': 'finger-middle-right',
+            'k': 'finger-ring-right', 'i': 'finger-ring-right',
+            'l': 'finger-pinky-right', 'o': 'finger-pinky-right',
+            'm': 'finger-pinky-right', 'p': 'finger-pinky-right',
+            ' ': 'finger-thumb'
+        };
+
+        // Variables d'état
+        let currentText = '';
+        let currentIndex = 0;
+        let inputHistory = [];
+        let errorCount = 0;
+        let startTime = null;
+        let isActive = false;
+        let isPaused = false;
+        let timerInterval = null;
+
+        // Éléments DOM
+        const elements = {
+            textDisplay: document.getElementById('text-display'),
+            wpm: document.getElementById('wpm'),
+            accuracy: document.getElementById('accuracy'),
+            timer: document.getElementById('timer'),
+            bestWpm: document.getElementById('best-wpm'),
+            errors: document.getElementById('errors'),
+            startBtn: document.getElementById('start-btn'),
+            pauseBtn: document.getElementById('pause-btn'),
+            pauseOverlay: document.getElementById('pause-overlay'),
+            progressFill: document.getElementById('progress-fill'),
+            progressText: document.getElementById('progress-text'),
+            keyboard: document.getElementById('keyboard'),
+            difficulty: document.getElementById('difficulty'),
+            layout: document.getElementById('layout')
+        };
+
+        // Initialisation
+        function init() {
+            loadBestScore();
+            resetTest();
+            renderKeyboard();
+            
+            // Event listeners
+            elements.difficulty.addEventListener('change', resetTest);
+            elements.layout.addEventListener('change', renderKeyboard);
+            
+            document.addEventListener('keydown', handleKeyDown);
+            document.addEventListener('keyup', handleKeyUp);
+        }
+
+        function loadBestScore() {
+            const bestWpm = localStorage.getItem('bestWPM') || '0';
+            elements.bestWpm.textContent = bestWpm;
+        }
+
+        function saveBestScore(wpm) {
+            const currentBest = parseInt(localStorage.getItem('bestWPM') || '0');
+            if (wpm > currentBest) {
+                localStorage.setItem('bestWPM', wpm.toString());
+                elements.bestWpm.textContent = wpm;
+            }
+        }
+
+        function resetTest() {
+            const difficulty = elements.difficulty.value;
+            const texts = textLibrary[difficulty];
+            currentText = texts[Math.floor(Math.random() * texts.length)];
+            
+            currentIndex = 0;
+            inputHistory = [];
+            errorCount = 0;
+            startTime = null;
+            isActive = false;
+            isPaused = false;
+            
+            clearInterval(timerInterval);
+            
+            updateDisplay();
+            renderText();
+            updateStats();
+            
+            elements.startBtn.classList.remove('hidden');
+            elements.pauseBtn.classList.add('hidden');
+            elements.pauseOverlay.classList.add('hidden');
+        }
+
+        function startTest() {
+            isActive = true;
+            isPaused = false;
+            startTime = Date.now();
+            
+            elements.startBtn.classList.add('hidden');
+            elements.pauseBtn.classList.remove('hidden');
+            elements.pauseOverlay.classList.add('hidden');
+            
+            startTimer();
+        }
+
+        function pauseTest() {
+            isPaused = !isPaused;
+            
+            if (isPaused) {
+                elements.pauseOverlay.classList.remove('hidden');
+                elements.pauseBtn.innerHTML = '<i class="fas fa-play"></i> Reprendre';
+                clearInterval(timerInterval);
+            } else {
+                elements.pauseOverlay.classList.add('hidden');
+                elements.pauseBtn.innerHTML = '<i class="fas fa-pause"></i> Pause';
+                startTimer();
+            }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                if (!isPaused && startTime) {
+                    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                    const minutes = Math.floor(elapsed / 60);
+                    const seconds = elapsed % 60;
+                    elements.timer.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                }
+            }, 1000);
+        }
+
+        function handleKeyDown(e) {
+            if (!isActive || isPaused) return;
+            
+            e.preventDefault();
+            
+            if (e.key === 'Backspace') {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    if (inputHistory.length > 0) {
+                        const lastInput = inputHistory.pop();
+                        if (!lastInput.correct) {
+                            errorCount--;
+                        }
+                    }
+                    renderText();
+                    updateStats();
+                }
+                return;
+            }
+            
+            if (e.key.length === 1) {
+                const expectedChar = currentText[currentIndex];
+                const correct = e.key === expectedChar;
+                
+                inputHistory.push({ char: e.key, correct });
+                
+                if (correct) {
+                    currentIndex++;
+                    if (currentIndex >= currentText.length) {
+                        completeTest();
+                    }
+                } else {
+                    errorCount++;
+                }
+                
+                renderText();
+                updateStats();
+            }
+        }
+
+        function handleKeyUp(e) {
+            // Gérer les touches spéciales si nécessaire
+        }
+
+        function completeTest() {
+            isActive = false;
+            clearInterval(timerInterval);
+            
+            const wpm = parseInt(elements.wpm.textContent);
+            saveBestScore(wpm);
+            
+            elements.startBtn.classList.remove('hidden');
+            elements.pauseBtn.classList.add('hidden');
+            
+            // Animation de fin
+            elements.textDisplay.style.animation = 'pulse 2s';
+            setTimeout(() => {
+                elements.textDisplay.style.animation = '';
+            }, 2000);
+        }
+
+        function renderText() {
+            let html = '';
+            
+            for (let i = 0; i < currentText.length; i++) {
+                const char = currentText[i];
+                let className = '';
+                
+                if (i < currentIndex) {
+                    className = inputHistory[i] && inputHistory[i].correct ? 'char-correct' : 'char-incorrect';
+                } else if (i === currentIndex) {
+                    className = 'char-current';
+                }
+                
+                html += `<span class="${className}">${char === ' ' ? '&nbsp;' : char}</span>`;
+            }
+            
+            elements.textDisplay.innerHTML = html;
+            updateProgress();
+            highlightCurrentKey();
+        }
+
+        function updateProgress() {
+            const progress = (currentIndex / currentText.length) * 100;
+            elements.progressFill.style.width = `${progress}%`;
+            elements.progressText.textContent = 
+                `Progression: ${currentIndex} / ${currentText.length} caractères (${Math.round(progress)}%)`;
+        }
+
+        function updateStats() {
+            if (startTime && currentIndex > 0) {
+                const minutes = (Date.now() - startTime) / 60000;
+                const wordsTyped = currentIndex / 5;
+                const wpm = Math.round(wordsTyped / minutes);
+                elements.wpm.textContent = wpm || 0;
+                
+                const correctCount = inputHistory.filter(i => i.correct).length;
+                const accuracy = Math.round((correctCount / inputHistory.length) * 100);
+                elements.accuracy.textContent = accuracy || 100;
+            }
+            
+            elements.errors.textContent = errorCount;
+        }
+
+        function renderKeyboard() {
+            const layout = elements.layout.value;
+            const keyboardLayout = layouts[layout];
+            
+            let html = '';
+            
+            keyboardLayout.forEach(row => {
+                html += '<div class="keyboard-row">';
+                row.forEach(key => {
+                    const keyClass = key === 'Space' ? 'key space' : 'key';
+                    const displayKey = key === 'Space' ? 'Space' : key;
+                    html += `<div class="${keyClass}" data-key="${key.toLowerCase()}">${displayKey}</div>`;
+                });
+                html += '</div>';
+            });
+            
+            elements.keyboard.innerHTML = html;
+        }
+
+        function highlightCurrentKey() {
+            // Reset all keys
+            document.querySelectorAll('.key').forEach(key => {
+                key.classList.remove('active');
+                key.className = key.className.replace(/finger-\w+-?\w*/g, '');
+            });
+            
+            if (currentIndex < currentText.length) {
+                const currentChar = currentText[currentIndex].toLowerCase();
+                const keyElement = document.querySelector(`[data-key="${currentChar}"]`);
+                
+                if (keyElement) {
+                    keyElement.classList.add('active');
+                    
+                    // Add finger coloring
+                    const fingerClass = keyToFinger[currentChar];
+                    if (fingerClass) {
+                        keyElement.classList.add(fingerClass);
+                    }
+                }
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            const icon = document.querySelector('.mode-toggle i');
+            icon.className = document.body.classList.contains('dark') ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        function updateDisplay() {
+            elements.wpm.textContent = '0';
+            elements.accuracy.textContent = '100';
+            elements.timer.textContent = '0:00';
+            elements.errors.textContent = '0';
+        }
+
+        // Initialiser l'application
+        init();
+    </script>
+</body>
+</html>

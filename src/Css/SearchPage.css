@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+
+.library-list {
+  list-style: none;
+  padding: 20px 0;
+  margin-top: 20px;
+  width: 100%;
+  height: 100%;
+  max-height: 250px;
+  overflow-y: auto;
+  color: white;
+  text-align: center;
+}
+.library-section {
+  margin-top: 2rem;
+  max-height: 50vh;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1rem;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
+
+.library-category {
+  margin-bottom: 1.5rem;
+}
+
+.library-title {
+  font-size: 1.4rem;
+  color: #00cfff;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+
+.library-subjects {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.library-item {
+  color: #ccc;
+  margin-bottom: 4px;
+}
+
+
+.library-item {
+  margin: 6px 0;
+  font-size: 1.05rem;
+  opacity: 0.9;
+}
+
+
+
+.library-button {
+  
+  padding: 16px 30px;
+  background-color: rgba(0, 0, 0, 0.3); /* Transparent glassy background */
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(0, 150, 255, 0.15);
+}
+
+.library-button:hover {
+  background-color: rgba(0, 20, 40, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(0, 170, 255, 0.25);
+}
+
+/* Position the Create a New Roadmap button at the top-right corner of the page */
+.library-button.create-roadmap-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin-top: 1.5rem;
+  padding: 16px 30px;
+  background-color: rgba(0, 0, 0, 0.3); /* Transparent glassy background */
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(0, 150, 255, 0.15);
+}
+
+.library-button.create-roadmap-button:hover {
+  background-color: rgba(0, 20, 40, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(0, 170, 255, 0.25);
+}
+
+/* Position the back button in the top-left corner of the page */
+.back-buttonROADMAP {
+  position: absolute;
+  top: 4px;
+  left: 40px;
+  background-image: url('../images/back2-removebg-preview.png'); /* Correct path to the image */
+  background-size: 55px 55px;
+  
+  padding: 27px 27px;
+  background-color: rgba(0, 0, 0, 0.3); /* Transparent glassy background */
+  color: rgba(255, 255, 255, 0.85);
+ 
+  
+  border: 2px solid var(--White-color);
+  border-radius: 50px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(0, 150, 255, 0.15);
+
+}
+
+.back-buttonROADMAP:hover {
+ background-color: rgba(0, 20, 40, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  box-shadow:
+  0 0 0 1px rgba(255, 255, 255, 0.2),
+  0 0 20px rgba(0, 170, 255, 0.25);
+  }
+.search-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #292929;
+}
+
+/* Dark filter overlay */
+.dark-filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mesh-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.mesh-background canvas {
+  display: block;
+  position: absolute;
+}
+
+.content {
+  z-index: 3;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: lowercase;
+  text-shadow: 0 0 15px rgba(0, 170, 255, 0.7);
+  animation: titlePulse 4s infinite ease-in-out;
+}
+
+@keyframes titlePulse {
+  0%, 100% { opacity: 0.9; text-shadow: 0 0 15px rgba(0, 170, 255, 0.5); }
+  50% { opacity: 1; text-shadow: 0 0 25px rgba(0, 200, 255, 0.8); }
+}
+
+.search-formRoadmapIndex {
+  width: 100%;
+}
+
+.search-bar-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Add space between elements */
+  gap: 10px; /* Add spacing between elements */
+}
+
+.search-input {
+  flex: 1; /* Allow the input to take up available space */
+  padding: 22px 30px;
+  margin-right: 0; /* Remove margin-right to align properly */
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(0, 0, 0, 0.3); /* More transparent background */
+  color: white;
+  font-size: 1.2rem;
+  outline: none;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(0, 150, 255, 0.15);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px); /* Added blur effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+.search-input:focus {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(0, 170, 255, 0.25);
+  background-color: rgba(0, 20, 40, 0.4); /* Slight blue tint when focused */
+  animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.15),
+      0 0 15px rgba(0, 150, 255, 0.2);
+  }
+  100% {
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.25),
+      0 0 25px rgba(0, 170, 255, 0.35);
+  }
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-input {
+    padding: 18px 25px;
+    font-size: 1.1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+}
+
+/* From Uiverse.io by Spacious74 */
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.outer-cont {
+  padding: 12px 20px;
+  width:50% ;
+  margin: 15px ;
+  border: none;
+  font-size: 1rem;
+  width: 25%;
+  cursor: pointer;
+  position: relative;
+  background: linear-gradient(90deg, #5bfcc4, #f593e4, #71a4f0);
+  border-radius: 12px;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow:
+    inset 0px 0px 5px #ffffffa9,
+    inset 0px 35px 30px #000,
+    0px 5px 10px #000000cc;
+  text-shadow: 1px 1px 1px #000;
+}
+.outer-cont::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  border-radius: 12px;
+  filter: blur(0);
+  z-index: -1;
+  box-shadow: none;
+  background: conic-gradient(
+    #00000000 80deg,
+    #40baf7,
+    #f34ad7,
+    #5bfcc4,
+    #00000000 280deg
+  );
+  transition: all 0.3s ease;
+}
+.outer-cont:hover::before {
+  filter: blur(15px);
+}
+.outer-cont:active::before {
+  filter: blur(5px);
+  transform: translateY(1px);
+}
+.outer-cont:active {
+  box-shadow:
+    inset 0px 0px 5px #ffffffa9,
+    inset 0px 35px 30px #000;
+  margin-top: 3px;
+}

@@ -1,0 +1,121 @@
+.careers-page {
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+  background-color: #f9f9f9;
+}
+
+.page-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
+.help-section {
+  background-color: #e8f4f8;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.sidebar-careers {
+  width: 20%;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-careers nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-careers nav ul li {
+  margin: 1rem 0;
+}
+
+.sidebar-careers nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.sidebar-careers nav ul li a:hover {
+  color: #007bff;
+}
+
+.careers-content {
+  margin-left: 20%;
+  padding: 2rem;
+  width: 80%;
+}
+
+.careers-content h2 {
+  margin-bottom: 1rem;
+}
+
+.careers-content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.careers-content ul li {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.careers-content ul li h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.careers-content ul li p {
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.courseCardCourse {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.courseCardCourse:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-courses-consult,
+.button-courses-details {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button-courses-consult:hover,
+.button-courses-details:hover {
+  background-color: #0056b3;
+}

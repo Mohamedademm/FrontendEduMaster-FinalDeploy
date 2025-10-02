@@ -1,0 +1,62 @@
+.courseCardCC {
+  border-radius: 12px;
+  background-color: var(--Primary700-color);
+  display: flex;
+  flex-direction: column;
+  padding: 23px 24px;
+  flex: 1;
+}
+
+.courseIconCC {
+  width: 30px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.courseTitleCC {
+  color: var(--Primary900);
+  font: 700 20px Inter, sans-serif;
+  margin-top: 10px;
+}
+
+.courseDescriptionCC {
+  color: var(--Primary900);
+  font: 400 16px Inter, sans-serif;
+  margin-top: 8px;
+}
+
+.exploreIconCC {
+  width: 14px;
+  height: 16px;
+  background-image: url('../images/wordpress.png'); /* Pour les fichiers dans public/images */
+  background-size: cover;
+  background-position: center;
+  display: block;
+}
+
+
+.exploreTextCC {
+  color: var(--Secondary1);
+  font: 400 16px Inter, sans-serif;
+  margin-right: 11px;
+}
+
+.exploreIconContainerCC {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 16px;
+  overflow: hidden;
+}
+
+.exploreIconCC {
+  width: 14px;
+  height: 16px;
+  object-fit: contain;
+}
+
+@media (max-width: 991px) {
+  .courseCardCC {
+      margin-top: 20px;
+  }
+}

@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  overflow: auto;
+  scrollbar-gutter: stable both-edges;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Custom animations for TypingApp */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Smooth transitions for all elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 0px; /* Adjusted for a less intrusive scrollbar */
+  height: 0px; /* Adjusted for a less intrusive scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800; /* Will use new grays */
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full; /* Will use new grays */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500; /* Will use new grays */
+}
+
+/* Refined Professional Color Palette */
+:root {
+  /* Primary Colors (Professional Blues for Trust & Stability) */
+  --Primary900-color: #0A3D62; /* Darker, more saturated blue */
+  --Primary800-color: #1B6B93; /* Rich blue */
+  --Primary700-color: #4682B4; /* Steel Blue - main primary */
+
+  /* Secondary Colors (Accents for Engagement & Clarity) */
+  --Secondary1-color: #FF8C00; /* Dark Orange - for calls to action, warnings */
+  --Secondary2-color: #3CB371; /* Medium Sea Green - for success, positive feedback */
+  --Secondary3-color: #E6F2F8; /* Very Light Blue - for subtle backgrounds, highlights */
+
+  /* Grayscale Colors (Text, Borders & Neutral Elements) */
+  --Gray1-color: #333333;      /* Dark Gray - for primary text */
+  --gray2-color: #666666;      /* Medium Gray - for secondary text, icons */
+  --gray3-color: #F0F0F0;      /* Light Gray - for backgrounds, dividers */
+  --White-color: #FFFFFF;      /* White */
+
+  /* Dashboard Specific Colors (derived from the new palette) */
+  --primary-color: var(--Primary700-color);    /* e.g., #4682B4 */
+  --secondary-color: var(--Gray1-color);       /* e.g., #333333 */
+  --hover-color: #5A9BDC;                     /* Lighter shade of primary for hover */
+  --text-color: var(--Gray1-color);            /* For light backgrounds */
+  --background-color: var(--White-color);      /* Page background */
+  --card-background-color: var(--White-color); /* Card backgrounds */
+  --border-color: #DDDDDD;                    /* Subtle borders */
+  --shadow-color: rgba(0, 0, 0, 0.07);         /* Softer shadow */
+}
+
+/* Styles for the mode sombre */
+body.dark-mode {
+  /* Dark Mode Color Palette (ensure good contrast and readability) */
+  --Primary900-color: #1E3A5F; /* Darker Indigo/Blue */
+  --Primary800-color: #2A528A; /* Medium Dark Indigo/Blue */
+  --Primary700-color: #3B78B8; /* Desaturated Blue for dark mode primary */
+
+  --Secondary1-color: #FFA500; /* Brighter Orange for dark mode accents */
+  --Secondary2-color: #50C878; /* Emerald Green - for success in dark mode */
+  --Secondary3-color: #102A43; /* Darker, desaturated blue for subtle dark backgrounds */
+
+  --Gray1-color: #E5E5E5;      /* Light Gray - primary text in dark mode */
+  --gray2-color: #A0A0A0;      /* Medium Light Gray - secondary text, icons */
+  --gray3-color: #2C2C2C;      /* Dark Gray - card backgrounds in dark mode */
+  --White-color: #1A1A1A;      /* Very Dark Gray/Almost Black - main page background */
+
+  /* Dashboard Specific Colors for Dark Mode */
+  --primary-color: var(--Primary700-color);    /* Uses dark mode's Primary700 */
+  --secondary-color: var(--Gray1-color);       /* Uses dark mode's Gray1 (light text) */
+  --hover-color: #4F8FD6;                     /* Dark mode appropriate hover */
+  --text-color: var(--Gray1-color);            /* Light text for dark backgrounds */
+  --background-color: var(--White-color);      /* Page background in dark mode */
+  --card-background-color: var(--gray3-color); /* Card backgrounds in dark mode */
+  --border-color: #444444;                    /* Darker borders for dark mode */
+  --shadow-color: rgba(0, 0, 0, 0.2);          /* More pronounced shadow for dark mode if needed */
+  
+  /* Override de fond et texte pour le mode sombre */
+  background-color: var(--White-color); /* This is #1A1A1A in dark mode */
+  color: var(--Gray1-color); /* This is #E5E5E5 in dark mode */
+}
+
+/* Update scrollbar for dark mode with new variables */
+.dark-mode ::-webkit-scrollbar-track {
+  background-color: var(--gray3-color); /* Darker track for dark mode */
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background-color: var(--gray2-color); /* Lighter thumb for dark mode */
+}
+
+.dark-mode ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--Gray1-color); /* Even lighter thumb on hover for dark mode */
+}
+
+/* Success Colors */
+:root {
+  --success-dark900: #3B6506;
+  --success-dark800: #4C7A0B;
+  --success-dark700: #659711;
+  --success-dark600: #7FB519;
+  --success-default500: #9CD323;
+  --success-light400: #BCE455;
+  --success-light300: #D3F178;
+  --success-light200: #E8FAA6;
+  --success-light100: #F5FCD2;
+}
+
+/* Error Colors */
+:root {
+  --error-dark900: #7A0619;
+  --error-dark800: #930B16;
+  --error-dark700: #B71112;
+  --error-dark600: #DB2719;
+  --error-default500: #FF4423;
+  --error-light400: #FF7F59;
+  --error-light300: #FFA37A;
+  --error-light200: #FFC8A6;
+  --error-light100: #FFE7D3;
+}
+
+
+/* Information Colors */
+:root {
+  --info-dark900: #102E7A;
+  --info-dark800: #1A4393;
+  --info-dark700: #2A60B7;
+  --info-dark600: #3D81DB;
+  --info-default500: #54A6FF;
+  --info-light400: #7EC2FF;
+  --info-light300: #98D3FF;
+  --info-light200: #BAE5FF;
+  --info-light100: #DCF3FF;
+}
