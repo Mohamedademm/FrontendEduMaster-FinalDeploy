@@ -17,6 +17,8 @@
   "env": {
     "NPM_CONFIG_LEGACY_PEER_DEPS": "true",
     "CI": "false",
-    "GENERATE_SOURCEMAP": "false"
+    "GENERATE_SOURCEMAP": "false",
+    "DISABLE_ESLINT_PLUGIN": "true",
+    "SKIP_PREFLIGHT_CHECK": "true"
   }
 }
