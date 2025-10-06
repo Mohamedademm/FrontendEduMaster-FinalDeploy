@@ -60,6 +60,10 @@
     "tailwind:build": "tailwindcss -i ./src/tailwind.css -o ./src/output.css --minify",
     "tailwind:watch": "tailwindcss -i ./src/tailwind.css -o ./src/output.css --watch"
   },
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
