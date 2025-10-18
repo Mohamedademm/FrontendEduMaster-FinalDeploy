@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { getApiUrl, getImageUrl, API_ENDPOINTS } from '../utils/apiHelper';
 import '../Css/TopPicks.css';
 
 function TopPicks() {
@@ -20,7 +21,7 @@ function TopPicks() {
           setIsLoggedIn(true);
 
           // Fetch user career data
-          const careerResponse = await fetch('http://localhost:3000/api/users/career', {
+          const careerResponse = await fetch(getApiUrl(API_ENDPOINTS.users.career), {
             headers: {
               Authorization: `Bearer ${user.token}`,
             },
@@ -38,13 +39,13 @@ function TopPicks() {
               title: course.name,
               description: course.domaine,
               averageRating: course.averageRating || 0,
-              image: course.image.startsWith('http') ? course.image : `http://localhost:3000${course.image}`,
+              image: getImageUrl(course.image),
             }));
           }
 
           // If less than 3 courses, fetch from all courses to fill
           if (coursesToShow.length < 3) {
-            const coursesResponse = await fetch('http://localhost:3000/api/courses');
+            const coursesResponse = await fetch(getApiUrl(API_ENDPOINTS.courses.all));
             if (!coursesResponse.ok) {
               throw new Error(t('error_fetch_all_courses', 'Failed to fetch all courses.'));
             }
@@ -60,7 +61,7 @@ function TopPicks() {
                 title: course.name,
                 description: course.domaine,
                 averageRating: course.averageRating || 0,
-                image: course.image.startsWith('http') ? course.image : `http://localhost:3000${course.image}`,
+                image: getImageUrl(course.image),
               }));
 
             coursesToShow = [...coursesToShow, ...additionalCourses];
@@ -68,7 +69,7 @@ function TopPicks() {
         } else {
           setIsLoggedIn(false);
           // User not logged in, fetch 3 courses from all courses API
-          const coursesResponse = await fetch('http://localhost:3000/api/courses');
+          const coursesResponse = await fetch(getApiUrl(API_ENDPOINTS.courses.all));
           if (!coursesResponse.ok) {
             throw new Error(t('error_fetch_all_courses', 'Failed to fetch all courses.'));
           }
@@ -78,7 +79,7 @@ function TopPicks() {
             title: course.name,
             description: course.domaine,
             averageRating: course.averageRating || 0,
-            image: course.image.startsWith('http') ? course.image : `http://localhost:3000${course.image}`,
+            image: getImageUrl(course.image),
           }));
         }
 

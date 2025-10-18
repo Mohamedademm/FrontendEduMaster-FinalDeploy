@@ -1,3 +1,14 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow private areas
+Disallow: /Dashboard
+Disallow: /AdminCours
+Disallow: /AdminUser
+Disallow: /AdminTeacher
+Disallow: /Settings
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://frontend-edu-master-final-deploy-fgac-3bnt0ewaz.vercel.app/sitemap.xml

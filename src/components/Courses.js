@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
+import { getApiUrl, getImageUrl, API_ENDPOINTS } from '../utils/apiHelper';
 import Card from "./Card";
 import "../Css/Courses.css";
 import Swal from "sweetalert2";
@@ -23,12 +24,12 @@ function Courses({ userRole }) {
   async function fetchCoursesData() {
     setLoading(true);
     try {
-      let endpoint = "http://localhost:3000/api/courses";
+      let endpoint = API_ENDPOINTS.courses.all;
       if (userRole === "teacher") {
         const teacherId = localStorage.getItem("teacherId");
-        endpoint = `http://localhost:3000/api/courses/teacher/${teacherId}`;
+        endpoint = API_ENDPOINTS.courses.byTeacher(teacherId);
       }
-      const res = await fetch(endpoint);
+      const res = await fetch(getApiUrl(endpoint));
       if (!res.ok) throw new Error(t('error_loading_courses'));
       const data = await res.json();
       const validatedCourses = data.filter((course) => course.validation === "validated");
@@ -47,7 +48,7 @@ function Courses({ userRole }) {
 
   const handleDelete = async (courseId) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/courses/${courseId}`, {
+      const res = await fetch(getApiUrl(API_ENDPOINTS.courses.byId(courseId)), {
         method: "DELETE",
       });
       if (!res.ok) throw new Error(t('error_deleting_course'));
@@ -125,7 +126,7 @@ function Courses({ userRole }) {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/api/courses/${courseId}/rate`, {
+      const res = await fetch(getApiUrl(API_ENDPOINTS.courses.rate(courseId)), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -193,26 +194,14 @@ function Courses({ userRole }) {
               <div className="no-courses-state">{t('no_courses_available')}</div>
             ) : (
               currentCourses.map((course) => {
-                const imageUrl =
-                  course.image && course.image.startsWith("http")
-                    ? course.image
-                    : `http://localhost:3000${course.image}`;
+                const imageUrl = getImageUrl(course.image);
 
                 const teacherData = course.teacher || {};
 
                 let teacherProfileImageUrl =
                   "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg";
                 if (teacherData.profileImage) {
-                  if (
-                    teacherData.profileImage.startsWith("http") ||
-                    teacherData.profileImage.startsWith("data:")
-                  ) {
-                    teacherProfileImageUrl = teacherData.profileImage;
-                  } else {
-                    teacherProfileImageUrl = `http://localhost:3000${
-                      teacherData.profileImage.startsWith("/") ? "" : "/"
-                    }${teacherData.profileImage}`;
-                  }
+                  teacherProfileImageUrl = getImageUrl(teacherData.profileImage);
                 }
 
                 return (
